@@ -1,6 +1,6 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "Lib of UI components and web3 components",
   "keywords": [
     "ui",
@@ -14,8 +14,8 @@
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
   "scripts": {
-    "rollup": "rollup -c",
-    "test": "jest",
+    "build": "rollup -c",
+  
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
