@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.18",
+    "@radix-ui/react-label": "^2.0.2",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@svgr/rollup": "^8.1.0",
