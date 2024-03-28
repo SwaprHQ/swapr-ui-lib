@@ -5,5 +5,6 @@ export * from "./Icon";
 export * from "./IconButton";
 export * from "./Input";
 export * from "./Tabs";
+export * from "./Tag";
 export * from "./Toast";
 export * from "./ToggleGroup";
