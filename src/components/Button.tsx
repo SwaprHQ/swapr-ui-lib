@@ -215,7 +215,7 @@ export const buttonStyles = cva(
       size: "md",
       width: "normal",
     },
-  }
+  },
 );
 
 export type ButtonSizeProp = "xs" | "sm" | "md" | "lg";
@@ -252,7 +252,7 @@ export const Button = ({
           width,
           active,
           className,
-        })
+        }),
       )}
       {...props}
     >
