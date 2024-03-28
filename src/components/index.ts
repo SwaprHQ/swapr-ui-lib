@@ -5,6 +5,7 @@ export * from "./Icon";
 export * from "./IconBadge";
 export * from "./IconButton";
 export * from "./Input";
+export * from "./Logo";
 export * from "./Tabs";
 export * from "./Tag";
 export * from "./Toast";
