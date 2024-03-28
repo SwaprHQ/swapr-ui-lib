@@ -8,6 +8,7 @@ import autoprefixer from "autoprefixer";
 import { resolve } from "path";
 import typescript from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
+import svg from "rollup-plugin-svg";
 
 export default [
   {
@@ -16,7 +17,6 @@ export default [
       peerDepsExternal(),
       nodeResolve({ preferBuiltins: true }),
       commonjs(),
-
       postcss({
         plugins: [
           tailwindcss({ config: resolve("src/tailwind.config.js") }),
@@ -27,6 +27,7 @@ export default [
       typescript({
         tsconfig: "tsconfig.json",
       }),
+      svg(),
       esbuild({
         target: "es2020",
         tsconfig: resolve("./tsconfig.json"),
