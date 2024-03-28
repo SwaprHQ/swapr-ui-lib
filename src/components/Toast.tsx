@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, ReactNode } from "react";
-import { toast as sonnerToast } from "sonner";
+import { toast as sonnerToast, Toaster } from "sonner";
+import { cva } from "class-variance-authority";
+
 import { Icon } from "./Icon";
 import { Button } from "./Button";
-import { cva } from "class-variance-authority";
 
 export const toastStyles = cva(
   [
@@ -96,3 +97,5 @@ export const warningToast = ({
     colorScheme: "warning",
     className,
   });
+
+export { Toaster };
