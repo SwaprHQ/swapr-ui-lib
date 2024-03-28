@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import { toast as sonnerToast } from "sonner";
-import { Button, Icon } from ".";
+import { Icon } from "./Icon";
+import { Button } from "./Button";
 import { cva } from "class-variance-authority";
 
 export const toastStyles = cva(

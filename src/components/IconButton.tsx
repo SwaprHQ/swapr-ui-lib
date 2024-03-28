@@ -1,6 +1,7 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import { Button, ButtonProps, ButtonSizeProp, Icon, IconProps } from ".";
+import { Button, ButtonProps, ButtonSizeProp } from "./Button";
+import { Icon, IconProps } from "./Icon";
 
 export const iconButtonStyles = cva([], {
   variants: {

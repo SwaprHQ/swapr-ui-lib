@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, cx } from "class-variance-authority";
-import { Icon, IconName } from ".";
+import { Icon, IconName } from "./Icon";
 
 const inputStyles = cva(
   [
