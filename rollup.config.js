@@ -12,18 +12,11 @@ import svg from "rollup-plugin-svg";
 
 export default [
   {
-    input: ["src/tailwind-preset.ts", "src/index.ts"],
+    input: ["./tailwind-preset.ts", "src/index.ts"],
     plugins: [
       peerDepsExternal(),
       nodeResolve({ preferBuiltins: true }),
       commonjs(),
-      postcss({
-        plugins: [
-          tailwindcss({ config: resolve("src/tailwind.config.js") }),
-          autoprefixer,
-        ],
-        extract: resolve("dist/styles.css"),
-      }),
       typescript({
         tsconfig: "tsconfig.json",
       }),
@@ -59,17 +52,13 @@ export default [
     plugins: [
       postcss({
         plugins: [
-          tailwindcss({ config: "src/tailwind.config.js" }),
+          tailwindcss({ config: "./tailwind.config.ts" }),
           autoprefixer,
         ],
         extract: "styles.css",
       }),
     ],
-    output: [
-      {
-        dir: resolve("./dist"),
-      },
-    ],
+    output: [{ dir: resolve("./dist") }],
   },
   {
     input: ["dist/es/src/index.d.ts"],

@@ -1,12 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-
-import { Config, RecursiveKeyValuePair } from "tailwindcss/types/config";
-
-const config: Config & {
-  theme: { colors?: RecursiveKeyValuePair };
-} = {
+module.exports = {
   presets: [require("./tailwind-preset.ts")],
   content: [
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,5 +17,3 @@ const config: Config & {
     extend: {},
   },
 };
-
-export default config;
