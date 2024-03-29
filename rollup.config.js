@@ -19,11 +19,13 @@ export default [
       commonjs(),
       typescript({
         tsconfig: "tsconfig.json",
+        exclude: /\.stories\.tsx?$/,
       }),
       svg(),
       esbuild({
         target: "es2020",
         tsconfig: resolve("./tsconfig.json"),
+        exclude: /\.stories\.tsx?$/,
       }),
     ],
     output: [
