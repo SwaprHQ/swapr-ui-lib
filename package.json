@@ -15,9 +15,9 @@
   "typings": "./dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-  
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "npm run build:tailwind && storybook dev -p 6006",
+    "build:storybook": "npm run build:tailwind && storybook build",
+    "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
   },
   "files": [
     "dist"
@@ -44,10 +44,20 @@
     "@radix-ui/react-label": "^2.0.2",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@storybook/addon-essentials": "^8.0.5",
+    "@storybook/addon-interactions": "^8.0.5",
+    "@storybook/addon-links": "^8.0.5",
+    "@storybook/addon-onboarding": "^8.0.5",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.5",
+    "@storybook/react": "^8.0.5",
+    "@storybook/react-webpack5": "^8.0.5",
     "@svgr/rollup": "^8.1.0",
     "@types/react": "^18.0.15",
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
+    "postcss-loader": "^8.1.1",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^6.1.1",
@@ -56,6 +66,7 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sonner": "^1.4.41",
+    "storybook": "^8.0.5",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^4.7.4"
