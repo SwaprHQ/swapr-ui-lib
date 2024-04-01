@@ -1,0 +1,23 @@
+name: Auto Publish Swapr UI package
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bun install
+      - name: Build package
+        run: bun run build
+      - name: Create release
+        run: auto shipit
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          DEPLOY_DIR: dist
+          SRC_PACKAGE_DIR: src
