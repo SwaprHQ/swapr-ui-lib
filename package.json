@@ -16,7 +16,7 @@
   "scripts": {
     "build": "rollup -c",
     "storybook": "npm run build:tailwind && storybook dev -p 6006",
-    "build-storybook": "npm run build:tailwind && storybook build",
+    "build:storybook": "npm run build:tailwind && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
   },
   "files": [
