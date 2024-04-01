@@ -18,14 +18,19 @@ Make sure you run the build command before publishing, also update the lib versi
 npm publish
 ```
 
-### Run storybook locally (TODO)
+### Run tailwindcss to compile styles
+```
+npm run build:tailwindcss
+```
+
+### Run storybook locally
 
 ```
 npm run storybook
 ```
 
-### Build storybook (TODO)
+### Build storybook
 
 ```
-npm run build-storybook
+npm run build:storybook
 ```
