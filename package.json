@@ -1,12 +1,8 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "description": "Lib of UI components and web3 components",
-  "keywords": [
-    "ui",
-    "web3",
-    "components"
-  ],
+  "keywords": ["ui", "web3", "components"],
   "author": "Swapr",
   "license": "ISC",
   "main": "./dist/cjs/index.cjs",
@@ -19,9 +15,7 @@
     "build:storybook": "npm run build:tailwind && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
