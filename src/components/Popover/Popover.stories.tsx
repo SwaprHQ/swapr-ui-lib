@@ -9,7 +9,7 @@ import {
   TabGroup,
   TabHeader,
   TabStyled,
-} from "@/components";
+} from "../../components";
 
 const meta = {
   title: "Components/Popover",
