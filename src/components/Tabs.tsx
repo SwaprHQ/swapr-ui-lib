@@ -1,6 +1,7 @@
 import React, { Children, Fragment, PropsWithChildren } from "react";
 import { Tab, TabProps } from "@headlessui/react";
 import { ChipButton } from "./ChipButton";
+import { twMerge } from "tailwind-merge";
 
 export const TabGroup = ({
   children,
@@ -26,10 +27,11 @@ export const TabGroup = ({
 
 export const TabHeader = ({
   children,
+  className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <Tab.List className="flex space-x-3" {...props}>
+    <Tab.List className={twMerge("flex space-x-3 p-0.5", className)} {...props}>
       {children}
     </Tab.List>
   );
@@ -46,12 +48,21 @@ interface TabStyledProps extends React.HTMLAttributes<HTMLDivElement> {
   selected?: boolean;
 }
 
-export const TabStyled = ({ children, selected, ...props }: TabStyledProps) => {
+export const TabStyled = ({
+  children,
+  selected,
+  className,
+  ...props
+}: TabStyledProps) => {
   return (
     <Tab as={Fragment} {...props}>
       {({ selected }) => (
         /* Use the `selected` state to conditionally style the selected tab. */
-        <ChipButton active={selected} colorScheme="secondary">
+        <ChipButton
+          active={selected}
+          colorScheme="secondary"
+          className={className}
+        >
           {children}
         </ChipButton>
       )}
