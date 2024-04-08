@@ -63,6 +63,15 @@ export default [
     output: [{ dir: resolve("./dist") }],
   },
   {
+    input: resolve("./src/colors.css"),
+    plugins: [
+      postcss({
+        extract: "colors.css",
+      }),
+    ],
+    output: [{ dir: resolve("./dist") }],
+  },
+  {
     input: ["dist/es/src/index.d.ts"],
     plugins: [dts()],
     output: [
