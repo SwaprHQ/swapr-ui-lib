@@ -1,6 +1,6 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.46",
+  "version": "0.0.48",
   "description": "Lib of UI components and web3 components",
   "keywords": ["ui", "web3", "components"],
   "author": "Swapr",
@@ -21,6 +21,10 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/es/index.mjs",
       "default": "./dist/cjs/index.cjs"
+    },
+    "./colors.css": {
+      "import": "./dist/colors.css",
+      "default": "./dist/colors.css"
     },
     "./styles.css": {
       "import": "./dist/styles.css",
