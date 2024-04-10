@@ -9,6 +9,7 @@ const iconBadgeStyles = cva(
       size: {
         lg: "p-6",
         md: "p-4",
+        sm: "p-2",
       },
       variant: {
         solid: [],
@@ -141,7 +142,7 @@ export type IconBadgeColorSchemeProp =
   | "secondary"
   | "error"
   | "success";
-type SizeProp = "md" | "lg";
+type SizeProp = "sm" | "md" | "lg";
 
 interface IconBadgeProps {
   name: IconName;
@@ -151,7 +152,7 @@ interface IconBadgeProps {
   className?: string;
 }
 
-const iconSize = { lg: 32, md: 24 };
+const iconSize = { lg: 32, md: 24, sm: 14 };
 
 export const IconBadge = ({
   name,
