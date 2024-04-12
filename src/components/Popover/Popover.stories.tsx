@@ -9,7 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./Popover";
 import {
   Button,
   ChipButton,
-  IconBadge,
+  Icon,
   IconButton,
   TabGroup,
   TabHeader,
@@ -57,13 +57,7 @@ const SettingsPopoverContent = () => (
   <div className="space-y-2">
     <div className="flex items-center mx-4 text-text-low-em">
       <p className="font-bold text-xs">MAX SLIPPAGE</p>
-      <IconBadge
-        className="ml-1 text-text-low-em"
-        colorScheme="secondary"
-        name="info-fill"
-        size="sm"
-        variant="ghost"
-      />
+      <Icon className="ml-1 text-text-low-em" name="info-fill" size={14} />
     </div>
     <TabGroup
       as="div"
@@ -92,13 +86,7 @@ const SettingsPopoverContent = () => (
     <Separator decorative className="h-[1px] bg-outline-base-em" />
     <div className="flex items-center mx-4 text-text-low-em">
       <p className="font-bold text-xs">TRANSACTION DEADLINE</p>
-      <IconBadge
-        className="ml-1 text-text-low-em"
-        colorScheme="secondary"
-        name="info-fill"
-        size="sm"
-        variant="ghost"
-      />
+      <Icon className="ml-1 text-text-low-em" name="info-fill" size={14} />
     </div>
     <ChipButton className="mx-4">10 mins</ChipButton>
   </div>
