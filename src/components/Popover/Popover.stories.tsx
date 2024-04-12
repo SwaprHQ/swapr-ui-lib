@@ -1,6 +1,8 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+
 import { Root as Separator } from "@radix-ui/react-separator";
+import { Close } from "@radix-ui/react-popover";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./Popover";
 
@@ -17,9 +19,6 @@ import {
 const meta = {
   title: "Components/Popover Content",
   component: PopoverContent,
-  parameters: {
-    layout: "centered",
-  },
   tags: ["autodocs"],
   argTypes: {
     align: {
@@ -35,15 +34,6 @@ const meta = {
       description:
         "Represents the distance in pixels between the popover content and the popover trigger",
     },
-    title: {
-      control: "text",
-      description:
-        "If this property is present, a Popover Header will be generated displaying the title with a close button.",
-    },
-    titleClassName: {
-      control: "text",
-      description: "String of classnames to be applied to the Popover Header.",
-    },
   },
 } satisfies Meta<typeof PopoverContent>;
 export default meta;
@@ -53,7 +43,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger className="ml-[400px] mt-4">
         <Button>Open Popup</Button>
       </PopoverTrigger>
       <PopoverContent {...args}>
@@ -116,14 +106,29 @@ const SettingsPopoverContent = () => (
 export const SlippageSettings: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger className="ml-[400px] mt-4">
         <IconButton name="settings" />
       </PopoverTrigger>
-      <PopoverContent
-        {...args}
-        className="border-none bg-outline-white max-w-md px-0"
-        titleClassName="ml-4"
-      >
+      <PopoverContent {...args} className="border-none max-w-md px-0">
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
+  ),
+};
+
+export const PopoverWithHeading: Story = {
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger className="ml-[400px] mt-4">
+        <Button>Open Popup</Button>
+      </PopoverTrigger>
+      <PopoverContent {...args} className="border-none max-w-md px-0">
+        <div className="flex justify-between items-center mx-4 pb-4">
+          <p className="text-lg text-text-high-em font-bold">Settings</p>
+          <Close asChild>
+            <IconButton name="cross" size="md" variant="ghost" />
+          </Close>
+        </div>
         <SettingsPopoverContent />
       </PopoverContent>
     </Popover>
