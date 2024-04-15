@@ -47,12 +47,10 @@ PopoverContent.displayName = Content.displayName;
 interface PopoverContentHeaderProps {
   className?: string;
   title?: string;
-  withCloseIcon?: boolean;
 }
 const PopoverContentHeader = ({
   className,
   title,
-  withCloseIcon = true,
 }: PopoverContentHeaderProps) => (
   <div
     className={twMerge(
@@ -61,11 +59,9 @@ const PopoverContentHeader = ({
     )}
   >
     <p className="text-lg text-text-high-em font-bold">{title}</p>
-    {withCloseIcon && (
-      <Close asChild>
-        <IconButton name="cross" size="md" variant="ghost" />
-      </Close>
-    )}
+    <Close asChild>
+      <IconButton name="cross" size="md" variant="ghost" />
+    </Close>
   </div>
 );
 

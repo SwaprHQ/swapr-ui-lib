@@ -110,25 +110,14 @@ export const SlippageSettings: Story = {
 
 export const PopoverWithHeader: Story = {
   render: (args) => (
-    <>
-      <Popover>
-        <PopoverTrigger className="ml-[400px] mt-4">
-          <Button>With close button (default)</Button>
-        </PopoverTrigger>
-        <PopoverContent {...args} className="max-w-md px-0">
-          <PopoverContentHeader title="Settings" />
-          <SettingsPopoverContent />
-        </PopoverContent>
-      </Popover>
-      <Popover>
-        <PopoverTrigger className="ml-[400px] mt-4">
-          <Button>Without close button</Button>
-        </PopoverTrigger>
-        <PopoverContent {...args} className="max-w-md px-0">
-          <PopoverContentHeader title="Settings" withCloseIcon={false} />
-          <SettingsPopoverContent />
-        </PopoverContent>
-      </Popover>
-    </>
+    <Popover>
+      <PopoverTrigger className="ml-[400px] mt-4">
+        <Button>With header</Button>
+      </PopoverTrigger>
+      <PopoverContent {...args} className="max-w-md px-0">
+        <PopoverContentHeader title="Settings" />
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
   ),
 };
