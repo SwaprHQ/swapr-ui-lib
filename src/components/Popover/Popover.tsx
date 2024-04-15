@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+  Close,
   Content,
   PopoverContentProps,
   Portal,
@@ -8,6 +9,7 @@ import {
   Trigger,
 } from "@radix-ui/react-popover";
 import { twMerge } from "tailwind-merge";
+import { IconButton } from "../IconButton";
 
 const Popover = Root;
 
@@ -42,4 +44,29 @@ const PopoverContent = React.forwardRef<
 );
 PopoverContent.displayName = Content.displayName;
 
-export { Popover, PopoverContent, PopoverTrigger };
+interface PopoverContentHeaderProps {
+  className?: string;
+  title?: string;
+  withCloseIcon?: boolean;
+}
+const PopoverContentHeader = ({
+  className,
+  title,
+  withCloseIcon = true,
+}: PopoverContentHeaderProps) => (
+  <div
+    className={twMerge(
+      "flex justify-between items-center mx-4 pb-4",
+      className
+    )}
+  >
+    <p className="text-lg text-text-high-em font-bold">{title}</p>
+    {withCloseIcon && (
+      <Close asChild>
+        <IconButton name="cross" size="md" variant="ghost" />
+      </Close>
+    )}
+  </div>
+);
+
+export { Popover, PopoverContent, PopoverContentHeader, PopoverTrigger };

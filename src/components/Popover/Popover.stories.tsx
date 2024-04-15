@@ -1,10 +1,14 @@
 import React from "react";
 
 import { Root as Separator } from "@radix-ui/react-separator";
-import { Close } from "@radix-ui/react-popover";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Popover, PopoverContent, PopoverTrigger } from "./Popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverContentHeader,
+  PopoverTrigger,
+} from "./Popover";
 
 import {
   Button,
@@ -97,28 +101,34 @@ export const SlippageSettings: Story = {
       <PopoverTrigger className="ml-[400px] mt-4">
         <IconButton name="settings" />
       </PopoverTrigger>
-      <PopoverContent {...args} className="border-none max-w-md px-0">
+      <PopoverContent {...args} className="max-w-md px-0">
         <SettingsPopoverContent />
       </PopoverContent>
     </Popover>
   ),
 };
 
-export const PopoverWithHeading: Story = {
+export const PopoverWithHeader: Story = {
   render: (args) => (
-    <Popover>
-      <PopoverTrigger className="ml-[400px] mt-4">
-        <Button>Open Popup</Button>
-      </PopoverTrigger>
-      <PopoverContent {...args} className="border-none max-w-md px-0">
-        <div className="flex justify-between items-center mx-4 pb-4">
-          <p className="text-lg text-text-high-em font-bold">Settings</p>
-          <Close asChild>
-            <IconButton name="cross" size="md" variant="ghost" />
-          </Close>
-        </div>
-        <SettingsPopoverContent />
-      </PopoverContent>
-    </Popover>
+    <>
+      <Popover>
+        <PopoverTrigger className="ml-[400px] mt-4">
+          <Button>With close button (default)</Button>
+        </PopoverTrigger>
+        <PopoverContent {...args} className="max-w-md px-0">
+          <PopoverContentHeader title="Settings" />
+          <SettingsPopoverContent />
+        </PopoverContent>
+      </Popover>
+      <Popover>
+        <PopoverTrigger className="ml-[400px] mt-4">
+          <Button>Without close button</Button>
+        </PopoverTrigger>
+        <PopoverContent {...args} className="max-w-md px-0">
+          <PopoverContentHeader title="Settings" withCloseIcon={false} />
+          <SettingsPopoverContent />
+        </PopoverContent>
+      </Popover>
+    </>
   ),
 };
