@@ -2,7 +2,11 @@
   "name": "swapr-ui",
   "version": "0.0.48",
   "description": "Lib of UI components and web3 components",
-  "keywords": ["ui", "web3", "components"],
+  "keywords": [
+    "ui",
+    "web3",
+    "components"
+  ],
   "author": "Swapr",
   "license": "ISC",
   "main": "./dist/cjs/index.cjs",
@@ -11,11 +15,13 @@
   "typings": "./dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "storybook": "npm run build:tailwind && storybook dev -p 6006",
-    "build:storybook": "npm run build:tailwind && storybook build",
+    "storybook": "bun run build:tailwind && storybook dev -p 6006",
+    "build:storybook": "bun run build:tailwind && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -40,6 +46,8 @@
     "@headlessui/react": "^1.7.18",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-separator": "^1.0.3",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@storybook/addon-essentials": "^8.0.5",

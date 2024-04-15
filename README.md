@@ -17,7 +17,7 @@ npm install swapr-ui@latest
 Install it with bun
 
 ```bash
-bun add swapr-ui@latest 
+bun add swapr-ui@latest
 ```
 
 ## If are using Tailwind CSS on your project
@@ -56,13 +56,15 @@ import "swapr-ui/styles.css";
 ## Available Scripts
 
 ### Build the library
-This will run rollup  with -c command (to check rollup config file)
+
+This will run rollup with -c command (to check rollup config file)
 
 ```
-npm run build
+bun run build
 ```
 
 ### Publish the library
+
 Make sure you run the build command before publishing, also update the lib version package.json
 
 ```
@@ -70,18 +72,19 @@ npm publish
 ```
 
 ### Run tailwindcss to compile styles
+
 ```
-npm run build:tailwindcss
+bun run build:tailwind
 ```
 
 ### Run storybook locally
 
 ```
-npm run storybook
+bun run storybook
 ```
 
 ### Build storybook
 
 ```
-npm run build:storybook
+bun run build:storybook
 ```
