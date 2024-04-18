@@ -1,6 +1,5 @@
-import React, { ButtonHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
+import { ButtonSizeProp } from "./Button";
 
 export const buttonStyles = cva(
   [
@@ -215,48 +214,12 @@ export const buttonStyles = cva(
       size: "md",
       width: "normal",
     },
-  },
+  }
 );
 
-export type ButtonSizeProp = "xs" | "sm" | "md" | "lg";
-type WidthProp = "normal" | "fit" | "full";
-export type ButtonVariantProp = "solid" | "pastel" | "outline" | "ghost";
-export type ButtonColorSchemeProp = "primary" | "error" | "success";
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariantProp;
-  colorScheme?: ButtonColorSchemeProp;
-  size?: ButtonSizeProp;
-  width?: WidthProp;
-  disabled?: boolean;
-  active?: boolean;
-}
-
-export const Button = ({
-  children,
-  size,
-  variant,
-  colorScheme,
-  width,
-  active,
-  className,
-  ...props
-}: ButtonProps) => {
-  return (
-    <button
-      className={twMerge(
-        buttonStyles({
-          size,
-          variant,
-          colorScheme,
-          width,
-          active,
-          className,
-        }),
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+export const iconSizeMap: Record<ButtonSizeProp, any> = {
+  xs: 14,
+  sm: 14,
+  md: 18,
+  lg: 20,
 };
