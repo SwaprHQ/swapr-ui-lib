@@ -56,7 +56,7 @@ const modalPositionStyles = cva(
 
 const modalContentStyles = cva(
   [
-    "flex flex-col bg-surface-surface-0 border border-outline-base-em rounded-16 shadow-6 overflow-hidden",
+    "flex flex-col w-full bg-surface-surface-0 border border-outline-base-em rounded-16 shadow-6 overflow-hidden",
   ],
   {
     variants: {
@@ -77,10 +77,12 @@ const DialogContent = React.forwardRef<
     <DialogOverlay />
     <DialogPrimitive.Content
       ref={ref}
-      className={modalPositionStyles({ append, className })}
+      className={modalPositionStyles({ append })}
       {...props}
     >
-      <div className={modalContentStyles({ append })}>{children}</div>
+      <div className={modalContentStyles({ append, className })}>
+        {children}
+      </div>
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
