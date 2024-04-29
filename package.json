@@ -1,6 +1,6 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "Lib of UI components and web3 components",
   "keywords": [
     "ui",
@@ -20,7 +20,7 @@
     "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
   },
   "files": [
-    "dist"
+    "dist/"
   ],
   "exports": {
     ".": {
