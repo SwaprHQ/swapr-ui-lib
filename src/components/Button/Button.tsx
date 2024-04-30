@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from "react";
 
 import { twMerge } from "tailwind-merge";
 
-import { buttonStyles } from "./utils";
+import { buttonStyles } from "./styles";
 
 type WidthProp = "normal" | "fit" | "full";
 export type ButtonColorSchemeProp = "primary" | "error" | "success";
