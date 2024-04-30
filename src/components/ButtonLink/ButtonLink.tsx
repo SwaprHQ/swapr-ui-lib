@@ -21,7 +21,7 @@ export interface ButtonLinkProps extends SimplifiedButtonProps {
 
 const buttonLinkStyles = cva(
   [
-    "cursor-pointer !p-0 rounded-0",
+    "cursor-pointer !p-0 !rounded-0",
     "active:!ring-0",
     "hover:!bg-transparent hover:border-b-2",
   ],
