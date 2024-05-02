@@ -1,83 +1,57 @@
 import * as React from "react";
 
-import { cva } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 import { ButtonProps, buttonStyles, iconSizeMap } from "../Button";
 import { Icon, IconName } from "../Icon";
 
-type SimplifiedButtonProps = Omit<
-  ButtonProps,
-  "variant" | "colorScheme" | "width"
->;
-export type ButtonLinkColorSchemeProp = "neutral" | "swapr";
-export interface ButtonLinkProps extends SimplifiedButtonProps {
-  colorScheme?: ButtonLinkColorSchemeProp;
+export interface ButtonLinkProps<T extends React.ElementType>
+  extends ButtonProps {
+  as?: T;
+  children?: React.ReactNode;
   href: string;
   iconLeft?: IconName;
   iconRight?: IconName;
   target?: string;
 }
 
-const buttonLinkStyles = cva(
-  [
-    "cursor-pointer !p-0 !rounded-0",
-    "active:!ring-0",
-    "hover:!bg-transparent hover:border-b-2",
-  ],
-  {
-    variants: {
-      colorScheme: {
-        neutral: "text-text-high-em",
-        swapr: "text-text-primary-main",
-      },
-      disabled: {
-        true: "pointer-events-none text-text-disabled",
-      },
-    },
-    defaultVariants: {
-      colorScheme: "swapr",
-      disabled: false,
-    },
-  }
-);
-
-export const ButtonLink = ({
+export function ButtonLink<T extends React.ElementType = "a">({
+  as,
   children,
   className,
-  colorScheme,
-  disabled,
   href,
   iconLeft,
   iconRight,
   id,
   size,
   target,
-}: ButtonLinkProps) => {
+  variant,
+  ...props
+}: ButtonLinkProps<T> &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof ButtonLinkProps<T>>) {
+  const Component = as || "a";
   const iconSize = size ? iconSizeMap[size] : 14;
 
   return (
-    <a
+    <Component
       className={twMerge(
         buttonStyles({
           className,
           size,
-          variant: "ghost",
+          variant,
           width: "fit",
         }),
-        buttonLinkStyles({
-          colorScheme,
-          disabled,
-        })
+        className
       )}
       href={href}
       id={id}
       tabIndex={0}
       target={target}
+      {...props}
     >
       {iconLeft && <Icon size={iconSize} name={iconLeft} />}
       {children && <div>{children}</div>}
       {iconRight && <Icon size={iconSize} name={iconRight} />}
-    </a>
+    </Component>
   );
-};
+}

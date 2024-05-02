@@ -2,6 +2,7 @@ import React from "react";
 
 import type { Meta, StoryFn } from "@storybook/react";
 
+import { Button } from "../Button/Button";
 import { ButtonLink, ButtonLinkProps } from "./ButtonLink";
 
 const meta = {
@@ -37,26 +38,32 @@ const meta = {
 } satisfies Meta<typeof ButtonLink>;
 export default meta;
 
-export const WithIconLeft: StoryFn<ButtonLinkProps> = (args) => (
+export const WithIconLeft: StoryFn<ButtonLinkProps<"a">> = (args) => (
   <ButtonLink iconLeft="plus" {...args}>
-    Link
+    As link
   </ButtonLink>
 );
 
-export const WithIconRight: StoryFn<ButtonLinkProps> = (args) => (
+export const WithIconRight: StoryFn<ButtonLinkProps<"a">> = (args) => (
   <ButtonLink iconRight="arrow-top-right" {...args}>
-    Link
+    As link
   </ButtonLink>
 );
 
-export const WithBothIcons: StoryFn<ButtonLinkProps> = (args) => (
+export const WithBothIcons: StoryFn<ButtonLinkProps<"a">> = (args) => (
   <ButtonLink iconLeft="plus" iconRight="arrow-top-right" {...args}>
-    Link
+    As link
   </ButtonLink>
 );
 
-export const Disabled: StoryFn<ButtonLinkProps> = (args) => (
+export const Disabled: StoryFn<ButtonLinkProps<"a">> = (args) => (
   <ButtonLink iconLeft="plus" iconRight="arrow-top-right" disabled {...args}>
-    Link
+    As link
+  </ButtonLink>
+);
+
+export const AsButton: StoryFn<ButtonLinkProps<"button">> = (args) => (
+  <ButtonLink as={Button} iconRight="arrow-top-right" {...args}>
+    As button
   </ButtonLink>
 );
