@@ -13,26 +13,26 @@ const meta = {
     children: {
       control: "text",
       defaultValue: "Link",
-      description: "Represents content to be displayed in the link.",
+      description: "Represents content to be displayed in the button link.",
     },
     disabled: {
       control: "boolean",
       defaultValue: "false",
       description:
-        "If disabled, the user won't be able to interact with the link.",
+        "If disabled, the user won't be able to interact with the button link.",
     },
     size: {
       control: "radio",
       options: ["xs", "sm", "md", "lg"],
       defaultValue: "md",
-      description: "Sets the link text and icon sizes.",
+      description: "Sets the button link text and icon sizes.",
     },
     target: {
       control: "radio",
       options: ["_self", "_blank", "_parent", "_top"],
       defaultValue: "_self",
       description:
-        "Controls how the link should open when the user interacts with it.",
+        "Controls how the button link should open when the user interacts with it.",
     },
   },
 } satisfies Meta<typeof ButtonLink>;

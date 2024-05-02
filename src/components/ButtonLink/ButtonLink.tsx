@@ -26,6 +26,7 @@ export function ButtonLink<T extends React.ElementType = "a">({
   size,
   target,
   variant,
+  width,
   ...props
 }: ButtonLinkProps<T> &
   Omit<React.ComponentPropsWithoutRef<T>, keyof ButtonLinkProps<T>>) {
@@ -39,7 +40,7 @@ export function ButtonLink<T extends React.ElementType = "a">({
           className,
           size,
           variant,
-          width: "fit",
+          width,
         }),
         className
       )}
