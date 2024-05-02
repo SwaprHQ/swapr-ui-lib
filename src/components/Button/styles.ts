@@ -216,10 +216,3 @@ export const buttonStyles = cva(
     },
   }
 );
-
-export const iconSizeMap: Record<ButtonSizeProp, any> = {
-  xs: 14,
-  sm: 14,
-  md: 18,
-  lg: 20,
-};
