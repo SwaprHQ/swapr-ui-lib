@@ -2,18 +2,24 @@ import * as React from "react";
 
 import { twMerge } from "tailwind-merge";
 
-import { buttonStyles } from "../Button";
+import { ButtonProps, buttonStyles } from "../Button";
 
 export type ButtonLinkProps<T extends React.ElementType> =
   React.PropsWithChildren<
-    React.ComponentPropsWithoutRef<T> & {
-      as?: T;
-    }
+    React.ComponentPropsWithoutRef<T> &
+      Pick<
+        ButtonProps,
+        "active" | "colorScheme" | "size" | "variant" | "width"
+      > & {
+        as?: T;
+      }
   >;
 
 export function ButtonLink<T extends React.ElementType = "a">({
+  active,
   as,
   className,
+  colorScheme,
   size,
   variant,
   width,
@@ -25,7 +31,9 @@ export function ButtonLink<T extends React.ElementType = "a">({
     <Component
       className={twMerge(
         buttonStyles({
+          active,
           className,
+          colorScheme,
           size,
           variant,
           width,
