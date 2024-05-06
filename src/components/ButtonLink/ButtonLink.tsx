@@ -4,9 +4,12 @@ import { twMerge } from "tailwind-merge";
 
 import { buttonStyles } from "../Button";
 
-export interface ButtonLinkProps<T extends React.ElementType> {
-  as?: T;
-}
+export type ButtonLinkProps<T extends React.ElementType> =
+  React.PropsWithChildren<
+    React.ComponentPropsWithoutRef<T> & {
+      as?: T;
+    }
+  >;
 
 export function ButtonLink<T extends React.ElementType = "a">({
   as,
