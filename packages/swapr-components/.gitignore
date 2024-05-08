@@ -1,6 +1,0 @@
-dist
-node_modules
-.vscode
-*storybook.log
-tailwind.css
-storybook-static

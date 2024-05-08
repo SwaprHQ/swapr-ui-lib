@@ -1,5 +1,5 @@
 {
-  "name": "swapr-ui",
+  "name": "@swapr-ui/components",
   "version": "0.0.53",
   "description": "Lib of UI components and web3 components",
   "keywords": [
