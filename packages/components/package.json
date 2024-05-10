@@ -15,9 +15,10 @@
   "typings": "./dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "storybook": "bun run build:tailwind && storybook dev -p 6006",
     "build:storybook": "bun run build:tailwind && storybook build",
-    "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css"
+    "build:tailwind": "npx tailwindcss -i ./src/global.css -o src/tailwind.css",
+    "storybook": "bun run build:tailwind && storybook dev -p 6006",
+    "clean": "npx rimraf node_modules && npx rimraf dist && npx rimraf .turbo"
   },
   "files": [
     "dist/"
