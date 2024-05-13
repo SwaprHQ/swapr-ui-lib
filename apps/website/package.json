@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo"
+    "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "next": "latest",

@@ -20,7 +20,8 @@
     "dev": "turbo run dev",
     "dev:components": "cd packages/components && bun run storybook",
     "dev:website": "turbo run dev --filter=./apps/website",
-    "start": "turbo run start"
+    "start": "turbo run start",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "eslint-config-turbo": "latest",
