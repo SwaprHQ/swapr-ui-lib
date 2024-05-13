@@ -1,5 +1,5 @@
 {
-  "name": "@swapr-ui/website",
+  "name": "swapr-ui-website",
   "version": "0.1.5",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo",
+    "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo && npx rimraf tsconfig.tsbuildinfo",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@swapr-ui/components": "workspace:*",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -28,6 +27,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
+    "swapr-ui": "workspace:*",
     "tailwindcss": "latest",
     "typescript": "latest"
   }

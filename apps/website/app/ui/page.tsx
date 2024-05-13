@@ -45,7 +45,7 @@ import {
   Dialog,
   DialogClose,
   DialogFooter,
-} from "@swapr-ui/components";
+} from "swapr-ui";
 
 import { ThemeSwitch } from "@/components";
 

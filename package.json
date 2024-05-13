@@ -1,5 +1,5 @@
 {
-  "name": "swapr-ui",
+  "name": "swapr-ui-monorepo",
   "repository": "https://github.com/SwaprHQ/swapr-ui-lib",
   "version": "1.0.0",
   "license": "MIT",
@@ -14,11 +14,11 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:components": "turbo run build --filter=./packages/components",
+    "build:ui": "turbo run build --filter=./packages/ui",
     "build:website": "turbo run build --filter=./apps/website",
     "clean": "turbo run clean && npx rimraf node_modules && npx rimraf .turbo",
     "dev": "turbo run dev",
-    "dev:components": "cd packages/components && bun run storybook",
+    "dev:ui": "cd packages/ui && bun run storybook",
     "dev:website": "turbo run dev --filter=./apps/website",
     "start": "turbo run start",
     "typecheck": "turbo run typecheck"
