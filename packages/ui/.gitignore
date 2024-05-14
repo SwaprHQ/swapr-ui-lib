@@ -16,8 +16,10 @@
 /build
 
 # misc
+tailwind.css
 .DS_Store
 .turbo
+.vscode
 *.pem
 
 # debug
@@ -37,3 +39,7 @@ next-env.d.ts
 
 #build
 /dist
+
+# storybook
+*storybook.log
+storybook-static

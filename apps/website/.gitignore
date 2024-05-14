@@ -16,8 +16,10 @@
 /build
 
 # misc
+tailwind.css
 .DS_Store
 .turbo
+.vscode
 *.pem
 
 # debug

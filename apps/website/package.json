@@ -1,0 +1,34 @@
+{
+  "name": "swapr-ui-website",
+  "version": "0.1.5",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo && npx rimraf tsconfig.tsbuildinfo",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "next": "latest",
+    "next-themes": "^0.2.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "sonner": "^1.4.2",
+    "tailwind-merge": "^2.2.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "swapr-ui": "workspace:*",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

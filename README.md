@@ -1,90 +1,65 @@
-# Swapr UI
+# Swapr-UI
 
-## Documentation
+Swapr-UI is a Next.js monorepo project that implements a set of web components built with the utility classes from Tailwind CSS.
 
-For documentation, visit [swap-ui-website](https://swapr-ui.pages.dev/), it's still work in progress.
+## Prerequisites
 
-## Getting started
+Before you can run this project, make sure you have the following software installed:
 
-Swapr UI will help you build dapp supafast by having a set of web components built with the utility classes from Tailwind CSS.
+- Node.js 18 or higher
+- Bun
+- Git
 
-Install it with npm
+## Getting Started
 
-```bash
-npm install swapr-ui@latest
-```
+To get started with Swapr UI, follow these steps:
 
-Install it with bun
+1. Clone the repository:
 
-```bash
-bun add swapr-ui@latest
-```
+    ```bash
+    git clone https://github.com/SwaprHQ/swapr-ui-lib.git
+    ```
 
-## If are using Tailwind CSS on your project
+2. Install the dependencies and build the projects:
 
-Add this path to content on tailwind config
+    ```bash
+    cd swapr-ui-lib
+    bun install
+    bun run build
+    ```
 
-**Tailwind Config**
+3. Start the UI Library development server:
 
-```
- content: [
-    <!-- other paterns -->
-    "./node_modules/swapr-ui/**/*.{js,ts,js,mjs}",
-  ],
-```
+    ```bash
+    bun run dev:ui
+    ```
 
-**Import Colors**
+4. Start the Website development server:
 
-You can either import colors or just copy colors.css and tweak it. On Next js, you can import it on a place like `layout.js`.
+    ```bash
+    bun run dev:website
+    ```
 
-```
-  import "swapr-ui/colors.css";
-```
+If you need to delete all the files and folders inside each `.gitignore` file from all the repos, run:
 
-## Not using tailwind css
+  ```bash
+  bun run clean
+  ```
 
-Import all the needed styles
+## Troubleshooting
 
-```
-import "swapr-ui/styles.css";
-```
+- `Unhandled Runtime Error` for NextJS
 
----
+  This usually happens on NextJS v13.2.4 and up, when you export a client component (using the `"use client"` directive) using a normal function. A quick fix for this bug is to turn the normal function into an arrow function.
 
-# Library
+- `app-index.js:31 Warning: Extra attributes from the server: data-new-gr-c-s-check-loaded,data-gr-ext-installed` or similar
 
-## Available Scripts
+  This may happen due to different browser extensions like `Grammarly` and `LanguageTool` passing down extra attributes that will make a mismatch between server and client renders. Disabling/configuring the troublesome extensions to not run in the development ports (like port `3000`) should fix this issue.
 
-### Build the library
+- `Cannot read properties of undefined (reading Component).`
 
-This will run rollup with -c command (to check rollup config file)
+  This may happen due to circular dependencies between imports. Check if you have three or more components creating a circle of imports which may lead to a component being invoked before its initialization. A quick way to solve this would be to check the way you're exporting the problematic component. Check `packages/components/src/components/index.ts` to see an example of how to solve these exports.
 
-```
-bun run build
-```
+## License
 
-### Publish the library
-
-Make sure you run the build command before publishing, also update the lib version package.json
-
-```
-npm publish
-```
-
-### Run tailwindcss to compile styles
-
-```
-bun run build:tailwind
-```
-
-### Run storybook locally
-
-```
-bun run storybook
-```
-
-### Build storybook
-
-```
-bun run build:storybook
-```
+Swapr is released under the ISC License.
