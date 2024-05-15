@@ -16,7 +16,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:storybook": "rollup -c && bun run build:tailwind && storybook build",
-    "build:tailwind": "npx tailwindcss -i ./src/global.css -o packages/ui/src/tailwind.css",
+    "build:tailwind": "npx tailwindcss -i ./src/global.css",
     "storybook": "bun run build:tailwind && storybook dev -p 6006",
     "clean": "npx rimraf node_modules && npx rimraf dist && npx rimraf .turbo",
     "typecheck": "tsc"
