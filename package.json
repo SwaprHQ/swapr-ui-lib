@@ -14,12 +14,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:ui": "turbo run build --filter=./packages/ui",
-    "build:website": "turbo run build --filter=./apps/website",
+    "build:ui": "turbo run build --filter=swapr-ui",
+    "build:storybook": "turbo run build:storybook --filter=swapr-ui",
+    "build:website": "turbo run build --filter=swapr-ui-website",
     "clean": "turbo run clean && npx rimraf node_modules && npx rimraf .turbo",
     "dev": "turbo run dev",
     "dev:ui": "cd packages/ui && bun run storybook",
-    "dev:website": "turbo run dev --filter=./apps/website",
+    "dev:website": "turbo run dev --filter=swapr-ui-website",
     "start": "turbo run start",
     "typecheck": "turbo run typecheck"
   },
