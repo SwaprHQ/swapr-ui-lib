@@ -21,11 +21,13 @@
     "dev": "turbo run dev",
     "dev:ui": "cd packages/ui && bun run storybook",
     "dev:website": "turbo run dev --filter=swapr-ui-website",
+    "lint": "turbo lint",
     "start": "turbo run start",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "eslint-config-turbo": "latest",
-    "turbo": "^1.9.4"
+    "eslint-config": "workspace:*",
+    "turbo": "^1.9.4",
+    "typescript-config": "workspace:*"
   }
 }
