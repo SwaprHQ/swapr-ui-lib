@@ -21,17 +21,17 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.1",
     "@svgr/webpack": "^8.1.0",
+    "@swapr-ui/eslint-config": "workspace:*",
+    "@swapr-ui/typescript-config": "workspace:*",
     "@types/eslint": "^8.56.5",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
     "eslint": "^8.57.0",
-    "eslint-config": "workspace:*",
     "postcss": "latest",
     "swapr-ui": "workspace:*",
     "tailwindcss": "latest",
-    "typescript": "^5.3.3",
-    "typescript-config": "workspace:*"
+    "typescript": "^5.3.3"
   }
 }

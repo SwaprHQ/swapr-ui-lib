@@ -26,8 +26,8 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "eslint-config": "workspace:*",
-    "turbo": "^1.9.4",
-    "typescript-config": "workspace:*"
+    "@swapr-ui/eslint-config": "workspace:*",
+    "@swapr-ui/typescript-config": "workspace:*",
+    "turbo": "^1.9.4"
   }
 }
