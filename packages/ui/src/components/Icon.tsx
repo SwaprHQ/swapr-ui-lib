@@ -1,4 +1,3 @@
-import React from "react";
 import * as IconList from "./icons";
 
 export type IconName =

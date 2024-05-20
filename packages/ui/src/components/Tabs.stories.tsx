@@ -1,4 +1,3 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { TabBody, TabGroup, TabHeader, TabPanel, TabStyled } from "./Tabs";
 
@@ -9,7 +8,7 @@ export default {
 } as ComponentMeta<typeof TabGroup>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof TabGroup> = args => (
+const Template: ComponentStory<typeof TabGroup> = () => (
   <TabGroup
     onChange={(index: number) => console.log("Changed selected tab to:", index)}
   >

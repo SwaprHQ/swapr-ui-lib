@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Root as Separator } from "@radix-ui/react-separator";
 import type { Meta, StoryObj } from "@storybook/react";
 
