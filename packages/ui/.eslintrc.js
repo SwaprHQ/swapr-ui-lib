@@ -6,4 +6,5 @@ module.exports = {
     project: "./tsconfig.lint.json",
     tsconfigRootDir: __dirname,
   },
+  ignorePatterns: ["storybook-static/", "*.config.ts", "tailwind-preset.ts"],
 };
