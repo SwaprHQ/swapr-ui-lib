@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import { cva, cx } from "class-variance-authority";
 
 export const chipButtonStyles = cva(
@@ -50,7 +50,7 @@ export const chipButtonStyles = cva(
       colorScheme: "secondary",
       size: "md",
     },
-  },
+  }
 );
 
 export type ChipButtonSizeProp = "sm" | "md";
@@ -79,7 +79,7 @@ export const ChipButton = ({
           colorScheme,
           active,
           className,
-        }),
+        })
       )}
       {...props}
     >

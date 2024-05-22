@@ -1,5 +1,4 @@
 import { cva } from "class-variance-authority";
-import { ButtonSizeProp } from "./Button";
 
 export const buttonStyles = cva(
   [
@@ -85,7 +84,6 @@ export const buttonStyles = cva(
           "hover:bg-surface-surface-2",
           "focus-visible:bg-surface-surface-2 focus-visible:ring-outline-med-em",
           "active:bg-surface-surface-2 active:ring-outline-med-em",
-          ,
         ],
       },
       {
@@ -146,7 +144,6 @@ export const buttonStyles = cva(
           "hover:bg-surface-success-accent-2",
           "focus-visible:bg-surface-success-accent-2",
           "active:bg-surface-success-accent-2",
-          ,
         ],
       },
       {
@@ -157,7 +154,6 @@ export const buttonStyles = cva(
           "hover:bg-surface-success-accent-1",
           "focus-visible:bg-surface-success-accent-1",
           "active:bg-surface-success-accent-1",
-          ,
         ],
       },
       {

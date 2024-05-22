@@ -1,4 +1,4 @@
-import React, { Children, Fragment, PropsWithChildren } from "react";
+import { Children, Fragment, PropsWithChildren } from "react";
 import { Tab, TabProps } from "@headlessui/react";
 import { ChipButton } from "./ChipButton";
 import { twMerge } from "tailwind-merge";
@@ -10,11 +10,11 @@ export const TabGroup = ({
   if (!children) return null;
 
   const headerChildren = Children.toArray(children).filter(
-    child => (child as any)?.type === TabHeader
+    (child) => (child as any)?.type === TabHeader
   );
 
   const bodyChildren = Children.toArray(children).filter(
-    child => (child as any)?.type === TabBody
+    (child) => (child as any)?.type === TabBody
   );
 
   return (
@@ -50,7 +50,6 @@ interface TabStyledProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const TabStyled = ({
   children,
-  selected,
   className,
   ...props
 }: TabStyledProps) => {

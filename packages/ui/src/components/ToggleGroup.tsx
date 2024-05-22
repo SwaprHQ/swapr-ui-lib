@@ -1,4 +1,3 @@
-import React from "react";
 import {
   RadioGroup,
   RadioGroupProps,
@@ -27,13 +26,13 @@ export const toggleOptionStyles = cva(
     defaultVariants: {
       size: "sm",
     },
-  },
+  }
 );
 
 export type ToogleOptionSizeProp = "xs" | "sm" | "md" | "lg";
 
 export const ToggleGroup = (
-  props: RadioGroupProps<React.ElementType, string>,
+  props: RadioGroupProps<React.ElementType, string>
 ) => {
   return (
     <RadioGroup

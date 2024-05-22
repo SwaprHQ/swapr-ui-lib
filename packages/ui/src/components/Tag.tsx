@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { cva } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
@@ -35,7 +35,7 @@ export const tagStyles = cva(
       size: "xs",
       colorScheme: "primary",
     },
-  },
+  }
 );
 
 export type TagSizeProp = "xs" | "sm";

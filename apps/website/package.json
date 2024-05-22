@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings 5",
     "clean": "npx rimraf node_modules && npx rimraf .next && npx rimraf dist && npx rimraf next-env.d.ts && npx rimraf .turbo && npx rimraf tsconfig.tsbuildinfo",
     "typecheck": "tsc"
   },
@@ -19,16 +19,19 @@
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.1.1",
     "@svgr/webpack": "^8.1.0",
+    "@swapr-ui/eslint-config": "workspace:*",
+    "@swapr-ui/typescript-config": "workspace:*",
+    "@types/eslint": "^8.56.5",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
+    "eslint": "^8.57.0",
     "postcss": "latest",
     "swapr-ui": "workspace:*",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "^5.3.3"
   }
 }

@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import { forwardRef } from "react";
 import {
   Close,
   Content,
@@ -15,7 +14,7 @@ const Popover = Root;
 
 const PopoverTrigger = Trigger;
 
-const PopoverContent = React.forwardRef<
+const PopoverContent = forwardRef<
   React.ElementRef<typeof Content>,
   PopoverContentProps
 >(

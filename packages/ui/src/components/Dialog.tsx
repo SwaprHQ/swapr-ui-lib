@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cva, cx } from "class-variance-authority";
 import { IconButton } from "./IconButton";
@@ -21,7 +21,7 @@ const DialogTrigger = DialogPrimitive.Trigger;
 
 const DialogPortal = DialogPrimitive.Portal;
 
-const DialogOverlay = React.forwardRef<
+const DialogOverlay = forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
@@ -67,7 +67,7 @@ const modalContentStyles = cva(
   }
 );
 
-const DialogContent = React.forwardRef<
+const DialogContent = forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & AppendProp
 >(({ className, append, children, ...props }, ref) => (
@@ -105,7 +105,7 @@ const closeStyle = cva(
   }
 );
 
-const DialogClose = React.forwardRef<
+const DialogClose = forwardRef<
   React.ElementRef<typeof DialogPrimitive.Close>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Close> &
     PositionProp &
@@ -163,7 +163,7 @@ const titleStyle = cva(["font-bold"], {
   defaultVariants: { size: "lg" },
 });
 
-const DialogTitle = React.forwardRef<
+const DialogTitle = forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & SizeProp
 >(({ className, size, ...props }, ref) => (

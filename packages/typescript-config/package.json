@@ -1,0 +1,8 @@
+{
+  "name": "@swapr-ui/typescript-config",
+  "version": "0.0.0",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+}

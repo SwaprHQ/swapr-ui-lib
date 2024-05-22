@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, cx } from "class-variance-authority";
 import { Icon, IconName } from "./Icon";
@@ -67,26 +67,20 @@ const iconSize: Record<InputSizeProp, number> = {
   lg: 20,
 };
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      id,
-      label,
-      message,
-      leftIcon,
-      rightIcon,
-      children,
-      size = "md",
-      variant,
-      isInvalid,
-      ...props
-    },
-    ref
-  ) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({
+    className,
+    id,
+    label,
+    message,
+    leftIcon,
+    rightIcon,
+    size = "md",
+    variant,
+    isInvalid,
+    ...props
+  }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-
-    ref = useMemo(() => inputRef, []);
 
     useEffect(() => {
       if (isInvalid && message) inputRef.current?.setCustomValidity(message);
@@ -143,7 +137,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = "Input";
 
-const InputField = React.forwardRef<
+const InputField = forwardRef<
   HTMLInputElement,
   React.InputHTMLAttributes<HTMLInputElement>
 >(({ className, ...props }, ref) => {

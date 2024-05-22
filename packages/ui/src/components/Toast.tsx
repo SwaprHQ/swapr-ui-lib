@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { toast as sonnerToast, Toaster } from "sonner";
 import { cva } from "class-variance-authority";
 
@@ -39,7 +39,7 @@ export const toast = ({
   children,
   className,
 }: ToastProps = {}) => {
-  sonnerToast.custom(t => (
+  sonnerToast.custom((t) => (
     <div className={toastStyles({ colorScheme, className })}>
       <div>{children}</div>
       <div className="h-6 border border-outline-low-em" />

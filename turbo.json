@@ -19,6 +19,9 @@
       "cache": false,
       "persistent": true
     },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
     "topo": {
       "dependsOn": ["^topo"]
     },
