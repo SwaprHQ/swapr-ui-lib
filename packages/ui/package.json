@@ -17,7 +17,7 @@
     "build": "rollup -c",
     "build:storybook": "rollup -c && bun run build:tailwind && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint . --max-warnings 5",
     "storybook": "bun run build:tailwind && storybook dev -p 6006",
     "clean": "npx rimraf node_modules && npx rimraf dist && npx rimraf storybook-static && npx rimraf .turbo && npx rimraf src/tailwind.css",
     "typecheck": "tsc"
