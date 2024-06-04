@@ -49,6 +49,7 @@ import {
 
 import { ThemeSwitch } from "@/components";
 
+const colorsKeysBanList = ["transparent", "inherit"];
 const fullConfig = resolveConfig(tailwindConfig);
 
 function extractStringValuesFromObject(object: any): string[] {
@@ -73,10 +74,13 @@ function extractStringValuesFromObject(object: any): string[] {
 const tailwindColors: { [key: string]: Array<string> } = Object.keys(
   fullConfig.theme.colors
 ).reduce(
-  (acc, key) => ({
-    ...acc,
-    [key]: extractStringValuesFromObject(fullConfig.theme.colors[key]),
-  }),
+  (acc, key) =>
+    colorsKeysBanList.some((colorName) => colorName === key)
+      ? acc
+      : {
+          ...acc,
+          [key]: extractStringValuesFromObject(fullConfig.theme.colors[key]),
+        },
   {}
 );
 
@@ -798,13 +802,13 @@ export default function UI() {
             {Object.keys(tailwindColors).map((key) => (
               <div key={key} className="space-y-2">
                 <p className="text-xl capitalize">{key}</p>
-                <div className="space-y-2">
+                <div className="space-y-2 grid grid-cols-3">
                   {tailwindColors[key].map((color) => (
                     <div key={color} className="flex space-x-4">
-                      <p>{`${key}-${color}`}</p>
                       <div
                         className={`bg-${key}-${color} w-20 h-10 rounded-6`}
                       />
+                      <p>{`${key}-${color}`}</p>
                     </div>
                   ))}
                 </div>
