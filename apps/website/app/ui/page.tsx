@@ -798,11 +798,11 @@ export default function UI() {
         </Section>
         <Section>
           <h2 className="text-2xl font-semibold">Colors</h2>
-          <div className="space-y-2">
+          <div className="space-y-3 divide-y divide-outline-primary-base-em">
             {Object.keys(tailwindColors).map((key) => (
-              <div key={key} className="space-y-2">
+              <div key={key} className="space-y-2.5 py-2">
                 <p className="text-xl capitalize">{key}</p>
-                <div className="space-y-2 grid grid-cols-3">
+                <div className="space-y-2 lg:grid lg:grid-cols-3">
                   {tailwindColors[key].map((color) => (
                     <div key={color} className="flex space-x-4">
                       <div
