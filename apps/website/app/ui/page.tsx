@@ -45,6 +45,7 @@ import {
   Dialog,
   DialogClose,
   DialogFooter,
+  ButtonLink,
 } from "swapr-ui";
 
 import { ThemeSwitch } from "@/components";
@@ -92,6 +93,15 @@ interface ButtonListProps {
   colorScheme?: ButtonColorSchemeProp;
 }
 
+interface ButtonLinkListProps {
+  active?: boolean;
+  as?: any;
+  children: string;
+  colorScheme?: ButtonColorSchemeProp;
+  disabled?: boolean;
+  variant?: ButtonVariantProp;
+}
+
 const buttonsList: Array<Array<ButtonListProps>> = [
   [
     { children: "Primary" },
@@ -135,6 +145,63 @@ const buttonsList: Array<Array<ButtonListProps>> = [
     },
   ],
 ];
+
+const buttonLinkList: {
+  headers: Array<string>;
+  rows: Array<Array<ButtonLinkListProps>>;
+} = {
+  headers: ["Primary", "Secondary", "Outline", "Active", "Disabled", "Ghost"],
+  rows: [
+    [
+      { children: "Normal" },
+      { children: "Normal", variant: "pastel" },
+      { children: "Normal", variant: "outline" },
+      { children: "Normal", active: true },
+      { children: "Normal", disabled: true },
+      { children: "Normal", variant: "ghost" },
+    ],
+    [
+      { children: "Error", colorScheme: "error" },
+      {
+        children: "Error",
+        colorScheme: "error",
+        variant: "pastel",
+      },
+      { children: "Error", colorScheme: "error", variant: "outline" },
+      { children: "Error", colorScheme: "error", active: true },
+      { children: "Error", colorScheme: "error", disabled: true },
+      { children: "Error", colorScheme: "error", variant: "ghost" },
+    ],
+    [
+      { children: "Success", colorScheme: "success" },
+      {
+        children: "Success",
+        colorScheme: "success",
+        variant: "pastel",
+      },
+      {
+        children: "Success",
+        colorScheme: "success",
+        variant: "outline",
+      },
+      { children: "Success", colorScheme: "success", active: true },
+      {
+        children: "Success",
+        colorScheme: "success",
+        disabled: true,
+      },
+      { children: "Success", colorScheme: "success", variant: "ghost" },
+    ],
+    [
+      { children: "As anchor", as: "a" },
+      { children: "As anchor", as: "a", variant: "pastel" },
+      { children: "As anchor", as: "a", variant: "outline" },
+      { children: "As anchor", as: "a", active: true },
+      { children: "As anchor", as: "a", disabled: true },
+      { children: "As anchor", as: "a", variant: "ghost" },
+    ],
+  ],
+};
 
 interface IconBadgeListProps {
   colorScheme?: IconBadgeColorSchemeProp;
@@ -328,6 +395,22 @@ export default function UI() {
               ))}
             </div>
           ))}
+        </Section>
+        <Section>
+          <h2 className="text-2xl font-semibold">ButtonLinks</h2>
+          <div className="grid space-y-2.5 lg:space-y-0 lg:grid-cols-6 lg:gap-4">
+            {buttonLinkList.headers.map((header, index) => (
+              <div
+                key={index}
+                className="hidden uppercase text-lg lg:block font-bold bg-gray-200 text-center"
+              >
+                {header}
+              </div>
+            ))}
+            {buttonLinkList.rows.flat().map((button, index) => (
+              <ButtonLink {...button} key={index} />
+            ))}
+          </div>
         </Section>
         <Section>
           <h2 className="text-2xl font-semibold">Chip Buttons</h2>
@@ -716,7 +799,6 @@ export default function UI() {
             ))}
           </div>
         </Section>
-
         <Section>
           <h2 className="text-2xl font-semibold">Logos</h2>
           <div className="space-y-4">
@@ -745,7 +827,6 @@ export default function UI() {
             ))}
           </div>
         </Section>
-
         <Section>
           <h2 className="text-2xl font-semibold">Font sizes</h2>
           <div className="space-y-2">
