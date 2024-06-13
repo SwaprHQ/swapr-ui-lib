@@ -191,11 +191,11 @@ const btnLinkList: {
   ],
   comboNames: [
     "Normal",
-    "As Button (N)",
+    "As Button, Normal",
     "Success",
-    "As Button (S)",
+    "As Button, Success",
     "Error",
-    "As Button (E)",
+    "As Button, Error",
   ],
   combos: [
     regularBLCombos,
@@ -897,18 +897,18 @@ interface ButtonSectionProps extends PropsWithChildren {
 const ButtonsSection = ({ children, btnList }: ButtonSectionProps) => (
   <Section>
     <h2 className="text-2xl font-semibold">{children}</h2>
-    <div className="grid space-y-2.5 lg:space-y-0 lg:grid-cols-8 lg:gap-4">
+    <div className="grid items-center space-y-2.5 lg:space-y-0 lg:grid-cols-8 lg:gap-4">
       {btnList.headers.map((header, index) => (
         <div
           key={index}
-          className="hidden uppercase text-md lg:block font-bold bg-gray-200 text-center"
+          className="hidden uppercase text-sm lg:block font-bold bg-gray-200 text-center"
         >
           {header}
         </div>
       ))}
       {btnList.comboNames.map((combName, rowIndex) => (
         <Fragment key={rowIndex}>
-          <div className="hidden uppercase text-md lg:block font-bold bg-gray-200 p-2 text-center">
+          <div className="hidden uppercase text-sm lg:block font-bold bg-gray-200 p-2 text-center">
             {combName}
           </div>
           {btnList.combos[rowIndex].map((button, colIndex) => (
