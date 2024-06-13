@@ -4,7 +4,7 @@ export const buttonStyles = cva(
   [
     "flex items-center justify-center h-fit",
     "select-none font-semibold",
-    "disabled:text-text-disabled disabled:cursor-not-allowed disabled:ring-0 disabled:shadow-inherit",
+    "disabled:text-text-disabled disabled:cursor-not-allowed disabled:ring-0",
     "focus-visible:outline-none focus-visible:ring-[3px]",
     "active:ring-[3px]",
   ],
@@ -51,7 +51,7 @@ export const buttonStyles = cva(
         variant: "solid",
         colorScheme: "primary",
         class: [
-          "bg-surface-primary-main text-text-white shadow-button",
+          "bg-surface-primary-main text-text-white",
           "hover:bg-surface-primary-accent-3",
           "focus-visible:bg-surface-primary-accent-3 focus-visible:ring-outline-primary-low-em",
           "active:bg-surface-primary-accent-3 active:ring-outline-primary-low-em",
@@ -90,7 +90,7 @@ export const buttonStyles = cva(
         variant: "solid",
         colorScheme: "error",
         class: [
-          "bg-surface-danger-main text-text-white shadow-button",
+          "bg-surface-danger-main text-text-white",
           "hover:bg-surface-danger-accent-3",
           "focus-visible:bg-surface-danger-accent-3",
           "active:bg-surface-danger-accent-3",
@@ -130,7 +130,7 @@ export const buttonStyles = cva(
         variant: "solid",
         colorScheme: "success",
         class: [
-          "bg-surface-success-main shadow-button",
+          "bg-surface-success-main",
           "hover:bg-surface-success-accent-3",
           "focus-visible:bg-surface-success-accent-3",
           "active:bg-surface-success-accent-3",
@@ -170,7 +170,7 @@ export const buttonStyles = cva(
         colorScheme: "primary",
         variant: "solid",
         active: true,
-        class: "!bg-surface-primary-accent-3 ring-outline-primary-low-em",
+        class: "bg-surface-primary-accent-3 ring-outline-primary-low-em",
       },
       {
         colorScheme: "primary",
@@ -194,13 +194,13 @@ export const buttonStyles = cva(
         colorScheme: "error",
         variant: "solid",
         active: true,
-        class: "!bg-surface-danger-accent-3 ring-outline-danger-low-em",
+        class: "bg-surface-danger-accent-3 ring-outline-danger-low-em",
       },
       {
         colorScheme: "success",
         variant: "solid",
         active: true,
-        class: "!bg-surface-success-accent-3 ring-outline-success-low-em",
+        class: "bg-surface-success-accent-3 ring-outline-success-low-em",
       },
     ],
     defaultVariants: {
