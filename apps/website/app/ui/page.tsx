@@ -513,6 +513,7 @@ export default function UI() {
             </Dialog>
           </div>
         </Section>
+        <PopoverSection />
         <Section>
           <h2 className="text-2xl font-semibold">Tabs</h2>
           <div className="space-y-5">
@@ -877,7 +878,6 @@ export default function UI() {
             ))}
           </div>
         </Section>
-        <PopoverSection />
       </div>
     </main>
   );
