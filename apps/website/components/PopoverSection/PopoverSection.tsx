@@ -22,7 +22,7 @@ export const PopoverSection = () => (
       {popoverList.headers.map((header, index) => (
         <div
           key={index}
-          className="hidden uppercase text-sm lg:block font-bold bg-gray-200 text-center"
+          className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 text-center"
         >
           {header}
         </div>
