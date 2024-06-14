@@ -48,7 +48,7 @@ import {
   ButtonLink,
 } from "swapr-ui";
 
-import { ThemeSwitch } from "@/components";
+import { PopoverSection, Section, ThemeSwitch } from "@/components";
 
 const colorsKeysBanList = ["transparent", "inherit"];
 const fullConfig = resolveConfig(tailwindConfig);
@@ -513,6 +513,7 @@ export default function UI() {
             </Dialog>
           </div>
         </Section>
+        <PopoverSection />
         <Section>
           <h2 className="text-2xl font-semibold">Tabs</h2>
           <div className="space-y-5">
@@ -881,11 +882,6 @@ export default function UI() {
     </main>
   );
 }
-
-const Section = ({ children }: PropsWithChildren) => {
-  return <section className="space-y-4 py-12 border-b">{children}</section>;
-};
-
 interface ButtonSectionProps extends PropsWithChildren {
   btnList: {
     headers: Array<string>;
