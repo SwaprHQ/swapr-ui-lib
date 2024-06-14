@@ -12,7 +12,7 @@ export default meta;
 
 export const AsAnchor: StoryFn<ButtonLinkProps<"a">> = (args) => (
   <ButtonLink href="/" {...args}>
-    As button
+    As anchor
   </ButtonLink>
 );
 

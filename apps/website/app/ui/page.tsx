@@ -45,6 +45,7 @@ import {
   Dialog,
   DialogClose,
   DialogFooter,
+  ButtonLink,
 } from "swapr-ui";
 
 import { ThemeSwitch } from "@/components";
@@ -92,49 +93,119 @@ interface ButtonListProps {
   colorScheme?: ButtonColorSchemeProp;
 }
 
-const buttonsList: Array<Array<ButtonListProps>> = [
-  [
-    { children: "Primary" },
-    { children: "Disabled", disabled: true },
-    { children: "Primary active", active: true },
-    { children: "Secondary", variant: "pastel" },
-    { children: "Outline", variant: "outline" },
-    { children: "Ghost", variant: "ghost" },
-    { children: "Ghost disabled", variant: "ghost", disabled: true },
-  ],
-  [
-    { children: "Error", colorScheme: "error" },
-    { children: "Error disabled", colorScheme: "error", disabled: true },
-    { children: "Error active", colorScheme: "error", active: true },
-    { children: "Error secondary", colorScheme: "error", variant: "pastel" },
-    { children: "Error outline", colorScheme: "error", variant: "outline" },
-    { children: "Error ghost", colorScheme: "error", variant: "ghost" },
-    {
-      children: "Error ghost disabled",
-      colorScheme: "error",
-      variant: "ghost",
-      disabled: true,
-    },
-  ],
-  [
-    { children: "Success", colorScheme: "success" },
-    { children: "Success disabled", colorScheme: "success", disabled: true },
-    { children: "Success active", colorScheme: "success", active: true },
-    {
-      children: "Success secondary",
-      colorScheme: "success",
-      variant: "pastel",
-    },
-    { children: "Success outline", colorScheme: "success", variant: "outline" },
-    { children: "Success ghost", colorScheme: "success", variant: "ghost" },
-    {
-      children: "Success ghost disabled",
-      colorScheme: "success",
-      variant: "ghost",
-      disabled: true,
-    },
-  ],
+interface ButtonLinkListProps {
+  active?: boolean;
+  as?: any;
+  children: string;
+  colorScheme?: ButtonColorSchemeProp;
+  disabled?: boolean;
+  variant?: ButtonVariantProp;
+}
+
+const getBtnCombos = (children: string = "Button"): Array<ButtonListProps> => [
+  { children },
+  { children, variant: "pastel" },
+  { children, variant: "outline" },
+  { children, variant: "ghost" },
+  { children, active: true },
+  { children, disabled: true },
+  { children, variant: "ghost", disabled: true },
 ];
+
+type ExtendedButtonProps = Omit<ButtonListProps, "children">;
+type ExtendedButtonLinkProps = Omit<ButtonLinkListProps, "children">;
+const extendBtnCombos = (
+  btnPropsList: Array<ButtonListProps>,
+  newProp: ExtendedButtonProps | ExtendedButtonLinkProps
+): Array<ButtonListProps> =>
+  btnPropsList.map((buttonProps) => ({
+    ...buttonProps,
+    ...newProp,
+  }));
+
+const regularBtnCombos: Array<ButtonLinkListProps> = getBtnCombos();
+const successBtnCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  regularBtnCombos,
+  { colorScheme: "success" }
+);
+const errorBtnCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  regularBtnCombos,
+  { colorScheme: "error" }
+);
+
+const buttonsList: {
+  headers: Array<string>;
+  comboNames: Array<string>;
+  combos: Array<Array<ButtonLinkListProps>>;
+} = {
+  headers: [
+    "",
+    "Primary",
+    "Secondary",
+    "Outline",
+    "Ghost",
+    "Active",
+    "Disabled",
+    "Ghost Disabled",
+  ],
+  comboNames: ["Normal", "Success", "Error"],
+  combos: [regularBtnCombos, successBtnCombos, errorBtnCombos],
+};
+
+const regularBLCombos: Array<ButtonLinkListProps> = getBtnCombos("ButtonLink");
+const regularAsElemBLCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  regularBLCombos,
+  { as: Button }
+);
+const successBLCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  regularBLCombos,
+  { colorScheme: "success" }
+);
+const successAsElemBLCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  successBLCombos,
+  { as: Button }
+);
+const errorBLCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  regularBLCombos,
+  { colorScheme: "error" }
+);
+const errorAsElemBLCombos: Array<ButtonLinkListProps> = extendBtnCombos(
+  errorBLCombos,
+  { as: Button }
+);
+
+const btnLinkList: {
+  headers: Array<string>;
+  comboNames: Array<string>;
+  combos: Array<Array<ButtonLinkListProps>>;
+} = {
+  headers: [
+    "",
+    "Primary",
+    "Secondary",
+    "Outline",
+    "Ghost",
+    "Active",
+    "Disabled",
+    "Ghost Disabled",
+  ],
+  comboNames: [
+    "Normal",
+    "As Button, Normal",
+    "Success",
+    "As Button, Success",
+    "Error",
+    "As Button, Error",
+  ],
+  combos: [
+    regularBLCombos,
+    regularAsElemBLCombos,
+    successBLCombos,
+    successAsElemBLCombos,
+    errorBLCombos,
+    errorAsElemBLCombos,
+  ],
+};
 
 interface IconBadgeListProps {
   colorScheme?: IconBadgeColorSchemeProp;
@@ -319,16 +390,8 @@ export default function UI() {
           <h1 className="text-3xl font-bold">Swapr UI</h1>
           <p>A set of components to build apps faster.</p>
         </div>
-        <Section>
-          <h2 className="text-2xl font-semibold">Buttons</h2>
-          {buttonsList.map((row, i) => (
-            <div key={i} className="flex space-x-2">
-              {row.map((button, j) => (
-                <Button {...button} key={j} />
-              ))}
-            </div>
-          ))}
-        </Section>
+        <ButtonsSection btnList={buttonsList}>Buttons</ButtonsSection>
+        <ButtonsSection btnList={btnLinkList}>ButtonLinks</ButtonsSection>
         <Section>
           <h2 className="text-2xl font-semibold">Chip Buttons</h2>
           {chipButtonList.map((row, i) => (
@@ -716,7 +779,6 @@ export default function UI() {
             ))}
           </div>
         </Section>
-
         <Section>
           <h2 className="text-2xl font-semibold">Logos</h2>
           <div className="space-y-4">
@@ -745,7 +807,6 @@ export default function UI() {
             ))}
           </div>
         </Section>
-
         <Section>
           <h2 className="text-2xl font-semibold">Font sizes</h2>
           <div className="space-y-2">
@@ -824,3 +885,37 @@ export default function UI() {
 const Section = ({ children }: PropsWithChildren) => {
   return <section className="space-y-4 py-12 border-b">{children}</section>;
 };
+
+interface ButtonSectionProps extends PropsWithChildren {
+  btnList: {
+    headers: Array<string>;
+    comboNames: Array<string>;
+    combos: Array<Array<ButtonListProps | ButtonLinkListProps>>;
+  };
+}
+
+const ButtonsSection = ({ children, btnList }: ButtonSectionProps) => (
+  <Section>
+    <h2 className="text-2xl font-semibold">{children}</h2>
+    <div className="grid items-center space-y-2.5 lg:space-y-0 lg:grid-cols-8 lg:gap-4">
+      {btnList.headers.map((header, index) => (
+        <div
+          key={index}
+          className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 text-center"
+        >
+          {header}
+        </div>
+      ))}
+      {btnList.comboNames.map((combName, rowIndex) => (
+        <Fragment key={rowIndex}>
+          <div className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 p-2 text-center">
+            {combName}
+          </div>
+          {btnList.combos[rowIndex].map((button, colIndex) => (
+            <ButtonLink {...button} key={colIndex} />
+          ))}
+        </Fragment>
+      ))}
+    </div>
+  </Section>
+);
