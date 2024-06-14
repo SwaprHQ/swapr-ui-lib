@@ -901,14 +901,14 @@ const ButtonsSection = ({ children, btnList }: ButtonSectionProps) => (
       {btnList.headers.map((header, index) => (
         <div
           key={index}
-          className="hidden uppercase text-sm lg:block font-bold bg-gray-200 text-center"
+          className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 text-center"
         >
           {header}
         </div>
       ))}
       {btnList.comboNames.map((combName, rowIndex) => (
         <Fragment key={rowIndex}>
-          <div className="hidden uppercase text-sm lg:block font-bold bg-gray-200 p-2 text-center">
+          <div className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 p-2 text-center">
             {combName}
           </div>
           {btnList.combos[rowIndex].map((button, colIndex) => (
