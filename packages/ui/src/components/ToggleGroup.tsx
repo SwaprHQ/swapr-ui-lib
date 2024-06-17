@@ -1,9 +1,11 @@
+import React from "react";
 import {
   RadioGroup,
   RadioGroupProps,
   RadioOptionProps,
 } from "@headlessui/react";
 import { cva } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 
 export const toggleOptionStyles = cva(
   [
@@ -29,37 +31,46 @@ export const toggleOptionStyles = cva(
   }
 );
 
-export type ToogleOptionSizeProp = "xs" | "sm" | "md" | "lg";
+export type ToggleOptionSizeProp = "xs" | "sm" | "md" | "lg";
 
-export const ToggleGroup = (
-  props: RadioGroupProps<React.ElementType, string>
-) => {
+export const ToggleGroup = ({
+  children,
+  className,
+  ...props
+}: RadioGroupProps<React.ElementType, string>) => {
   return (
     <RadioGroup
-      className="flex w-fit space-x-1 rounded-12 bg-surface-surface-2 p-[4px]"
+      className={twMerge(
+        "flex space-x-1 rounded-12 bg-surface-surface-2 p-[4px] overflow-x-overlay w-auto md:w-fit",
+        className
+      )}
       {...props}
     >
-      {props.children}
+      {children}
     </RadioGroup>
   );
 };
 
-export const ToogleGroupLabel = RadioGroup.Label;
+export const ToggleGroupLabel = RadioGroup.Label;
 
 type ToggleOptionProp = RadioOptionProps<React.ElementType, string> &
   React.PropsWithChildren<{
-    size?: ToogleOptionSizeProp;
+    size?: ToggleOptionSizeProp;
+    className?: string;
   }>;
 
-export const ToogleGroupOption = ({
+export const ToggleGroupOption = ({
   children,
   size,
+  className,
   ...props
 }: ToggleOptionProp) => {
   return (
     <RadioGroup.Option {...props}>
       {({ checked }) => (
-        <div className={toggleOptionStyles({ active: checked, size })}>
+        <div
+          className={toggleOptionStyles({ active: checked, size, className })}
+        >
           {children}
         </div>
       )}
