@@ -1,8 +1,8 @@
+import { PropsWithChildren, useRef } from "react";
+
 import {
-  Button,
   ChipButton,
   Icon,
-  IconButton,
   Popover,
   PopoverContent,
   PopoverContentHeader,
@@ -12,6 +12,20 @@ import {
   TabStyled,
 } from "swapr-ui";
 import { Root as Separator } from "@radix-ui/react-separator";
+
+const TriggerElement = ({ children }: PropsWithChildren) => (
+  <div
+    className={`
+    bg-surface-primary-main text-text-white
+    hover:bg-surface-primary-accent-3
+    focus-visible:bg-surface-primary-accent-3 focus-visible:ring-outline-primary-low-em
+    active:bg-surface-primary-accent-3 active:ring-outline-primary-low-em
+    px-3 py-2 space-x-2 rounded-12 text-base font-bold
+  `}
+  >
+    {children}
+  </div>
+);
 
 const SettingsPopoverContent = () => (
   <div className="space-y-2">
@@ -52,36 +66,50 @@ const SettingsPopoverContent = () => (
   </div>
 );
 
-export const PopoverBasic = () => (
-  <Popover>
-    <PopoverTrigger>
-      <Button>Open Popup</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <p>This is a basic content example</p>
-    </PopoverContent>
-  </Popover>
-);
+export const PopoverBasic = () => {
+  const basicRef = useRef(null);
 
-export const PopoverWithHeader = () => (
-  <Popover>
-    <PopoverTrigger>
-      <Button>With header</Button>
-    </PopoverTrigger>
-    <PopoverContent className="max-w-md px-0">
-      <PopoverContentHeader title="Settings" />
-      <SettingsPopoverContent />
-    </PopoverContent>
-  </Popover>
-);
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <TriggerElement>Open Popup</TriggerElement>
+      </PopoverTrigger>
+      <PopoverContent ref={basicRef}>
+        <p>This is a basic content example</p>
+      </PopoverContent>
+    </Popover>
+  );
+};
 
-export const PopoverSlippageSettings = () => (
-  <Popover>
-    <PopoverTrigger>
-      <IconButton name="settings" />
-    </PopoverTrigger>
-    <PopoverContent className="max-w-md px-0">
-      <SettingsPopoverContent />
-    </PopoverContent>
-  </Popover>
-);
+export const PopoverWithHeader = () => {
+  const withHeaderRef = useRef(null);
+
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <TriggerElement>With header</TriggerElement>
+      </PopoverTrigger>
+      <PopoverContent className="max-w-md px-0" ref={withHeaderRef}>
+        <PopoverContentHeader title="Settings" />
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+export const PopoverSlippageSettings = () => {
+  const settingsRef = useRef(null);
+
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <TriggerElement>
+          <Icon name="settings" />
+        </TriggerElement>
+      </PopoverTrigger>
+      <PopoverContent className="max-w-md px-0" ref={settingsRef}>
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
+  );
+};
