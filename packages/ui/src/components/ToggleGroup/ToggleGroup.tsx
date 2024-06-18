@@ -41,7 +41,7 @@ export const ToggleGroup = ({
   return (
     <RadioGroup
       className={twMerge(
-        "flex space-x-1 rounded-12 bg-surface-surface-2 p-[4px] overflow-x-overlay w-auto md:w-fit",
+        "flex space-x-1 rounded-12 bg-surface-surface-2 p-[4px] w-auto md:w-fit",
         className
       )}
       {...props}
@@ -69,7 +69,10 @@ export const ToggleGroupOption = ({
     <RadioGroup.Option {...props}>
       {({ checked }) => (
         <div
-          className={toggleOptionStyles({ active: checked, size, className })}
+          className={twMerge(
+            toggleOptionStyles({ active: checked, size }),
+            className
+          )}
         >
           {children}
         </div>
