@@ -3,7 +3,7 @@ import { ToggleGroup, ToggleGroupOption } from "./ToggleGroup"; // Corrected spe
 import { useState } from "react";
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: "Swapr-ui/ToggleGroup", // Corrected spelling here
+  title: "Components/ToggleGroup", // Corrected spelling here
   component: ToggleGroup,
   parameters: {
     layout: "centered",
