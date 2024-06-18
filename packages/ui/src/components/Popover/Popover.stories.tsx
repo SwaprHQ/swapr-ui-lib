@@ -10,7 +10,15 @@ import {
   PopoverTrigger,
 } from "./Popover";
 
-import { ChipButton, Icon, TabGroup, TabHeader, TabStyled } from "..";
+import {
+  Button,
+  ChipButton,
+  Icon,
+  IconButton,
+  TabGroup,
+  TabHeader,
+  TabStyled,
+} from "..";
 
 const meta = {
   title: "Components/Popover Content",
@@ -36,28 +44,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const TriggerElement = ({ children }: PropsWithChildren) => (
-  <div
-    className={`
-    bg-surface-primary-main text-text-white
-    hover:bg-surface-primary-accent-3
-    focus-visible:bg-surface-primary-accent-3 focus-visible:ring-outline-primary-low-em
-    active:bg-surface-primary-accent-3 active:ring-outline-primary-low-em
-    px-3 py-2 space-x-2 rounded-12 text-base font-bold
-  `}
-  >
-    {children}
-  </div>
-);
-
 export const Basic: Story = {
   render: (args) => {
     const basicRef = useRef(null);
 
     return (
       <Popover>
-        <PopoverTrigger className="ml-[400px] mt-4">
-          <TriggerElement>Open Popup</TriggerElement>
+        <PopoverTrigger asChild className="ml-[400px] mt-4">
+          <Button>Open Popup</Button>
         </PopoverTrigger>
         <PopoverContent {...args} ref={basicRef}>
           <p>This is a basic content example</p>
@@ -111,10 +105,8 @@ export const SlippageSettings: Story = {
 
     return (
       <Popover>
-        <PopoverTrigger className="ml-[400px] mt-4">
-          <TriggerElement>
-            <Icon name="settings" />
-          </TriggerElement>
+        <PopoverTrigger asChild className="ml-[400px] mt-4">
+          <IconButton name="settings" />
         </PopoverTrigger>
         <PopoverContent {...args} className="max-w-md px-0" ref={settingsRef}>
           <SettingsPopoverContent />
@@ -130,8 +122,8 @@ export const PopoverWithHeader: Story = {
 
     return (
       <Popover>
-        <PopoverTrigger className="ml-[400px] mt-4">
-          <TriggerElement>With header</TriggerElement>
+        <PopoverTrigger asChild className="ml-[400px] mt-4">
+          <Button>With header</Button>
         </PopoverTrigger>
         <PopoverContent {...args} className="max-w-md px-0" ref={withHeaderRef}>
           <PopoverContentHeader title="Settings" />
