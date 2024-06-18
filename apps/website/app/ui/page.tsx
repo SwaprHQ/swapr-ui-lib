@@ -36,8 +36,8 @@ import {
   Tag,
   TagColorSchemeProp,
   ToggleGroup,
-  ToogleGroupOption,
-  ToogleOptionSizeProp,
+  ToggleGroupOption,
+  ToggleOptionSizeProp,
   toast,
   errorToast,
   successToast,
@@ -64,7 +64,7 @@ function extractStringValuesFromObject(object: any): string[] {
         keys.push(key);
       } else if (typeof value === "object" && value) {
         const nestedKeys = extractStringValuesFromObject(value);
-        keys.push(...nestedKeys.map((nestedKey) => `${key}-${nestedKey}`));
+        keys.push(...nestedKeys.map(nestedKey => `${key}-${nestedKey}`));
       }
     }
   }
@@ -76,7 +76,7 @@ const tailwindColors: { [key: string]: Array<string> } = Object.keys(
   fullConfig.theme.colors
 ).reduce(
   (acc, key) =>
-    colorsKeysBanList.some((colorName) => colorName === key)
+    colorsKeysBanList.some(colorName => colorName === key)
       ? acc
       : {
           ...acc,
@@ -118,7 +118,7 @@ const extendBtnCombos = (
   btnPropsList: Array<ButtonListProps>,
   newProp: ExtendedButtonProps | ExtendedButtonLinkProps
 ): Array<ButtonListProps> =>
-  btnPropsList.map((buttonProps) => ({
+  btnPropsList.map(buttonProps => ({
     ...buttonProps,
     ...newProp,
   }));
@@ -301,7 +301,7 @@ const ChipBittonChildren = (
   </>
 );
 
-const toggleGroupOptionSizes: ToogleOptionSizeProp[] = ["xs", "sm", "md", "lg"];
+const toggleGroupOptionSizes: ToggleOptionSizeProp[] = ["xs", "sm", "md", "lg"];
 
 const chipButtonList: Array<Array<ChipButtonProps>> = [
   [
@@ -571,7 +571,7 @@ export default function UI() {
           </div>
         </Section>
         <Section>
-          <div className="text-2xl font-semibold">ToogleGroup</div>
+          <div className="text-2xl font-semibold">ToggleGroup</div>
           <p>
             Based on Radio Group component from Headless ui,{" "}
             <a
@@ -583,19 +583,19 @@ export default function UI() {
             .
           </p>
           <div className="divide-x divide-surface-surface-2 flex items-center space-x-5">
-            {toggleGroupOptionSizes.map((size) => (
+            {toggleGroupOptionSizes.map(size => (
               <div key={size} className="pl-4">
                 <p>Size: {size}</p>
                 <ToggleGroup value={slipage} onChange={setSlipage}>
-                  <ToogleGroupOption value="auto" size={size}>
+                  <ToggleGroupOption value="auto" size={size}>
                     auto
-                  </ToogleGroupOption>
-                  <ToogleGroupOption value="0.1" size={size}>
+                  </ToggleGroupOption>
+                  <ToggleGroupOption value="0.1" size={size}>
                     0.1%
-                  </ToogleGroupOption>
-                  <ToogleGroupOption value="0.5" size={size}>
+                  </ToggleGroupOption>
+                  <ToggleGroupOption value="0.5" size={size}>
                     0.5%
-                  </ToogleGroupOption>
+                  </ToggleGroupOption>
                 </ToggleGroup>
               </div>
             ))}
@@ -666,7 +666,7 @@ export default function UI() {
         <Section>
           <h2 className="text-2xl font-semibold">Tag</h2>
           <div className="flex space-x-6">
-            {TagColorSchemes.map((color) => (
+            {TagColorSchemes.map(color => (
               <Fragment key={color}>
                 <Tag colorScheme={color as TagColorSchemeProp} size="sm">
                   Tag
@@ -755,7 +755,7 @@ export default function UI() {
         <Section>
           <h2 className="text-2xl font-semibold">Icons</h2>
           <div className="flex flex-wrap space-x-4 space-y-2 md:space-y-0">
-            {Object.keys(iconMap).map((iconName) => (
+            {Object.keys(iconMap).map(iconName => (
               <div
                 className="flex flex-col items-center space-y-2"
                 key={iconName}
@@ -861,11 +861,11 @@ export default function UI() {
         <Section>
           <h2 className="text-2xl font-semibold">Colors</h2>
           <div className="space-y-3 divide-y divide-outline-primary-base-em">
-            {Object.keys(tailwindColors).map((key) => (
+            {Object.keys(tailwindColors).map(key => (
               <div key={key} className="space-y-2.5 py-2">
                 <p className="text-xl capitalize">{key}</p>
                 <div className="space-y-2 lg:grid lg:grid-cols-3">
-                  {tailwindColors[key].map((color) => (
+                  {tailwindColors[key].map(color => (
                     <div key={color} className="flex space-x-4">
                       <div
                         className={`bg-${key}-${color} w-20 h-10 rounded-6`}

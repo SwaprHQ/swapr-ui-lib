@@ -3,7 +3,7 @@ import { TabBody, TabGroup, TabHeader, TabPanel, TabStyled } from "./Tabs";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Swapr-ui/Tabs",
+  title: "Components/Tabs",
   component: TabGroup,
 } as ComponentMeta<typeof TabGroup>;
 
