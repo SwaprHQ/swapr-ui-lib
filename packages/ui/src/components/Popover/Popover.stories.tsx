@@ -1,5 +1,3 @@
-import { PropsWithChildren, useRef } from "react";
-
 import { Root as Separator } from "@radix-ui/react-separator";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -45,20 +43,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-  render: (args) => {
-    const basicRef = useRef(null);
-
-    return (
-      <Popover>
-        <PopoverTrigger asChild className="ml-[400px] mt-4">
-          <Button>Open Popup</Button>
-        </PopoverTrigger>
-        <PopoverContent {...args} ref={basicRef}>
-          <p>This is a basic content example</p>
-        </PopoverContent>
-      </Popover>
-    );
-  },
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
+        <Button>Open Popup</Button>
+      </PopoverTrigger>
+      <PopoverContent {...args}>
+        <p>This is a basic content example</p>
+      </PopoverContent>
+    </Popover>
+  ),
 };
 
 const SettingsPopoverContent = () => (
@@ -100,36 +94,28 @@ const SettingsPopoverContent = () => (
   </div>
 );
 export const SlippageSettings: Story = {
-  render: (args) => {
-    const settingsRef = useRef(null);
-
-    return (
-      <Popover>
-        <PopoverTrigger asChild className="ml-[400px] mt-4">
-          <IconButton name="settings" />
-        </PopoverTrigger>
-        <PopoverContent {...args} className="max-w-md px-0" ref={settingsRef}>
-          <SettingsPopoverContent />
-        </PopoverContent>
-      </Popover>
-    );
-  },
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
+        <IconButton name="settings" />
+      </PopoverTrigger>
+      <PopoverContent {...args} className="max-w-md px-0">
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
+  ),
 };
 
 export const PopoverWithHeader: Story = {
-  render: (args) => {
-    const withHeaderRef = useRef(null);
-
-    return (
-      <Popover>
-        <PopoverTrigger asChild className="ml-[400px] mt-4">
-          <Button>With header</Button>
-        </PopoverTrigger>
-        <PopoverContent {...args} className="max-w-md px-0" ref={withHeaderRef}>
-          <PopoverContentHeader title="Settings" />
-          <SettingsPopoverContent />
-        </PopoverContent>
-      </Popover>
-    );
-  },
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
+        <Button>With header</Button>
+      </PopoverTrigger>
+      <PopoverContent {...args} className="max-w-md px-0">
+        <PopoverContentHeader title="Settings" />
+        <SettingsPopoverContent />
+      </PopoverContent>
+    </Popover>
+  ),
 };
