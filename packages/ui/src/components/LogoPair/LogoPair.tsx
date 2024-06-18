@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { Logo, LogoSizeProp } from "./Logo";
+import { Logo, LogoSizeProp } from "../Logo";
 
 export const logoPairStyles = cva(["flex items-center w-fit h-fit relative"], {
   variants: {

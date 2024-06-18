@@ -1,6 +1,6 @@
 import { Children, Fragment, PropsWithChildren } from "react";
 import { Tab, TabProps } from "@headlessui/react";
-import { ChipButton } from "./ChipButton";
+import { ChipButton } from "../ChipButton";
 import { twMerge } from "tailwind-merge";
 
 export const TabGroup = ({

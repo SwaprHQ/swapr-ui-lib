@@ -1,4 +1,4 @@
-import * as IconList from "./icons";
+import * as IconList from "../icons";
 
 export type IconName =
   | "about-fill"

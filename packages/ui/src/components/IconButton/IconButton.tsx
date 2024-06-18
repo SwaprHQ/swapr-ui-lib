@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-import { Button, ButtonProps, ButtonSizeProp } from "./Button";
-import { Icon, IconProps } from "./Icon";
+import { Button, ButtonProps, ButtonSizeProp } from "../Button";
+import { Icon, IconProps } from "../Icon";
 
 export const iconButtonStyles = cva([], {
   variants: {

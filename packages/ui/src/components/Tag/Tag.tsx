@@ -48,7 +48,7 @@ export type TagColorSchemeProp =
   | "danger"
   | "info";
 
-interface TagProps {
+export interface TagProps {
   size?: TagSizeProp;
   colorScheme?: TagColorSchemeProp;
   className?: string;

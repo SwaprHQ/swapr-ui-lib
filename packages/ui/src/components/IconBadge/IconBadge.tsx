@@ -1,4 +1,4 @@
-import { Icon, IconName } from "./Icon";
+import { Icon, IconName } from "../Icon";
 import { cva } from "class-variance-authority";
 
 const iconBadgeStyles = cva(
