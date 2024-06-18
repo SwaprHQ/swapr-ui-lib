@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ToggleGroup, ToggleGroupOption } from "./ToggleGroup"; // Corrected spelling here
+import { ToggleGroup, ToggleGroupOption } from ".";
 import { useState } from "react";
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: "Components/ToggleGroup", // Corrected spelling here
+  title: "Components/ToggleGroup",
   component: ToggleGroup,
   parameters: {
     layout: "centered",
@@ -19,12 +19,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ToggleGroupComponent: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedValue, setSelectedValue] = useState("business");
 
     return (
       <ToggleGroup onChange={setSelectedValue} value={selectedValue} {...args}>
-        {["all", "business", "international", "politics"].map(category => (
+        {["all", "business", "international", "politics"].map((category) => (
           <ToggleGroupOption
             key={category}
             value={category}
