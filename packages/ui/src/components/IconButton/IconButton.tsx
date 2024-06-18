@@ -1,3 +1,5 @@
+import { forwardRef, Ref } from "react";
+
 import { cva } from "class-variance-authority";
 import { Button, ButtonProps, ButtonSizeProp } from "../Button";
 import { Icon, IconProps } from "../Icon";
@@ -23,15 +25,22 @@ const iconSize: Record<ButtonSizeProp, number> = {
   lg: 20,
 };
 
-export const IconButton = ({
-  name,
-  className,
-  size = "md",
-  ...props
-}: ButtonProps & Pick<IconProps, "name">) => {
-  return (
-    <Button className={iconButtonStyles({ className, size })} {...props}>
+export const IconButton = forwardRef(
+  (
+    {
+      name,
+      className,
+      size = "md",
+      ...props
+    }: ButtonProps & Pick<IconProps, "name">,
+    ref: Ref<HTMLButtonElement>
+  ) => (
+    <Button
+      className={iconButtonStyles({ className, size })}
+      {...props}
+      ref={ref}
+    >
       <Icon size={iconSize[size]} name={name} />
     </Button>
-  );
-};
+  )
+);

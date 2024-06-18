@@ -1,4 +1,5 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, Ref, forwardRef } from "react";
+
 import { cva, cx } from "class-variance-authority";
 
 export const chipButtonStyles = cva(
@@ -63,15 +64,18 @@ interface ChipButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
 }
 
-export const ChipButton = ({
-  children,
-  size,
-  colorScheme,
-  active,
-  className,
-  ...props
-}: ChipButtonProps) => {
-  return (
+export const ChipButton = forwardRef(
+  (
+    {
+      children,
+      size,
+      colorScheme,
+      active,
+      className,
+      ...props
+    }: ChipButtonProps,
+    ref: Ref<HTMLButtonElement>
+  ) => (
     <button
       className={cx(
         chipButtonStyles({
@@ -85,5 +89,5 @@ export const ChipButton = ({
     >
       {children}
     </button>
-  );
-};
+  )
+);
