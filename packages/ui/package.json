@@ -1,6 +1,6 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.57",
+  "version": "0.0.58",
   "description": "Lib of UI components and web3 components",
   "keywords": [
     "ui",
@@ -40,9 +40,8 @@
       "default": "./dist/styles.css"
     },
     "./tailwind-preset": {
-      "types": "./dist/types/tailwind-preset.d.ts",
-      "import": "./dist/es/tailwind-preset.mjs",
-      "default": "./dist/cjs/tailwind-preset.cjs"
+      "import": "./dist/es/packages/ui/tailwind-preset.mjs",
+      "default": "./dist/cjs/packages/ui/tailwind-preset.cjs"
     }
   },
   "devDependencies": {
