@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cva, cx } from "class-variance-authority";
-import { IconButton } from "./IconButton";
+import { IconButton } from "../IconButton";
 
 interface SizeProp {
   size?: "lg" | "xl" | null | undefined;
