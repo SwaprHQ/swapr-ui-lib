@@ -14,8 +14,8 @@
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "build:storybook": "rollup -c && bun run build:tailwind && storybook build",
+    "build": "rollup -c && bun run build:tailwind",
+    "build:storybook": "bun run build && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css",
     "lint": "eslint . --max-warnings 5",
     "storybook": "bun run build:tailwind && storybook dev -p 6006",
