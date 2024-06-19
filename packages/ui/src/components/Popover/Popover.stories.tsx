@@ -45,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger className="ml-[400px] mt-4">
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
         <Button>Open Popup</Button>
       </PopoverTrigger>
       <PopoverContent {...args}>
@@ -96,7 +96,7 @@ const SettingsPopoverContent = () => (
 export const SlippageSettings: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger className="ml-[400px] mt-4">
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
         <IconButton name="settings" />
       </PopoverTrigger>
       <PopoverContent {...args} className="max-w-md px-0">
@@ -109,7 +109,7 @@ export const SlippageSettings: Story = {
 export const PopoverWithHeader: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger className="ml-[400px] mt-4">
+      <PopoverTrigger asChild className="ml-[400px] mt-4">
         <Button>With header</Button>
       </PopoverTrigger>
       <PopoverContent {...args} className="max-w-md px-0">

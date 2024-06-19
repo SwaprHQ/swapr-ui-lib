@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, Ref, forwardRef } from "react";
 
 import { twMerge } from "tailwind-merge";
 
@@ -18,31 +18,37 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: WidthProp;
 }
 
-export const Button = ({
-  active,
-  children,
-  className,
-  colorScheme,
-  size,
-  variant,
-  width,
-  ...props
-}: ButtonProps) => {
-  return (
-    <button
-      className={twMerge(
-        buttonStyles({
-          active,
-          className,
-          colorScheme,
-          size,
-          variant,
-          width,
-        })
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
+export const Button = forwardRef(
+  (
+    {
+      active,
+      children,
+      className,
+      colorScheme,
+      size,
+      variant,
+      width,
+      ...props
+    }: ButtonProps,
+    ref: Ref<HTMLButtonElement>
+  ) => {
+    return (
+      <button
+        className={twMerge(
+          buttonStyles({
+            active,
+            className,
+            colorScheme,
+            size,
+            variant,
+            width,
+          })
+        )}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </button>
+    );
+  }
+);

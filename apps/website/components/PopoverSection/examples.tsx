@@ -54,7 +54,7 @@ const SettingsPopoverContent = () => (
 
 export const PopoverBasic = () => (
   <Popover>
-    <PopoverTrigger>
+    <PopoverTrigger asChild>
       <Button>Open Popup</Button>
     </PopoverTrigger>
     <PopoverContent>
@@ -65,7 +65,7 @@ export const PopoverBasic = () => (
 
 export const PopoverWithHeader = () => (
   <Popover>
-    <PopoverTrigger>
+    <PopoverTrigger asChild>
       <Button>With header</Button>
     </PopoverTrigger>
     <PopoverContent className="max-w-md px-0">
@@ -77,7 +77,7 @@ export const PopoverWithHeader = () => (
 
 export const PopoverSlippageSettings = () => (
   <Popover>
-    <PopoverTrigger>
+    <PopoverTrigger asChild>
       <IconButton name="settings" />
     </PopoverTrigger>
     <PopoverContent className="max-w-md px-0">
