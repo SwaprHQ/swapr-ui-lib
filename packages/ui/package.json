@@ -1,6 +1,6 @@
 {
   "name": "swapr-ui",
-  "version": "0.0.57",
+  "version": "0.0.59",
   "description": "Lib of UI components and web3 components",
   "keywords": [
     "ui",
@@ -14,8 +14,8 @@
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "build:storybook": "rollup -c && bun run build:tailwind && storybook build",
+    "build": "rollup -c && bun run build:tailwind",
+    "build:storybook": "bun run build && storybook build",
     "build:tailwind": "npx tailwindcss -i ./src/global.css",
     "lint": "eslint . --max-warnings 5",
     "storybook": "bun run build:tailwind && storybook dev -p 6006",
@@ -40,9 +40,8 @@
       "default": "./dist/styles.css"
     },
     "./tailwind-preset": {
-      "types": "./dist/types/tailwind-preset.d.ts",
-      "import": "./dist/es/tailwind-preset.mjs",
-      "default": "./dist/cjs/tailwind-preset.cjs"
+      "import": "./dist/es/packages/ui/tailwind-preset.mjs",
+      "default": "./dist/cjs/packages/ui/tailwind-preset.cjs"
     }
   },
   "devDependencies": {
