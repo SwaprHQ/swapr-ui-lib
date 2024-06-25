@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "swapr-ui";
+import { Button } from "@swapr/ui";
 
 export default function Home() {
   return (

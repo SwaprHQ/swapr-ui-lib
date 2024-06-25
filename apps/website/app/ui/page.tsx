@@ -46,7 +46,7 @@ import {
   DialogClose,
   DialogFooter,
   ButtonLink,
-} from "swapr-ui";
+} from "@swapr/ui";
 
 import { PopoverSection, Section, ThemeSwitch } from "@/components";
 

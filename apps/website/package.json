@@ -30,7 +30,7 @@
     "autoprefixer": "latest",
     "eslint": "^8.57.0",
     "postcss": "latest",
-    "swapr-ui": "workspace:*",
+    "@swapr/ui": "workspace:*",
     "tailwindcss": "latest",
     "typescript": "^5.3.3"
   }

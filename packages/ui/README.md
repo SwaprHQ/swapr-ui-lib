@@ -1,8 +1,8 @@
-# Swapr UI
+# @swapr/ui
 
 ## Documentation
 
-For documentation, visit [swap-ui-website](https://swapr-ui.pages.dev/), it's still work in progress.
+For documentation, visit [swapr-ui-website](https://swapr-ui.pages.dev/), it's still work in progress.
 
 ## Getting started
 
@@ -11,13 +11,13 @@ Swapr UI will help you build dapp supafast by having a set of web components bui
 Install it with npm
 
 ```bash
-npm install swapr-ui@latest
+npm install @swapr/ui@latest
 ```
 
 Install it with bun
 
 ```bash
-bun add swapr-ui@latest
+bun add @swapr/ui@latest
 ```
 
 ## If are using Tailwind CSS on your project
@@ -29,7 +29,7 @@ Add this path to content on tailwind config
 ```
  content: [
     <!-- other paterns -->
-    "./node_modules/swapr-ui/**/*.{js,ts,js,mjs}",
+    "./node_modules/@swapr/ui/**/*.{js,ts,js,mjs}",
   ],
 ```
 
@@ -38,7 +38,7 @@ Add this path to content on tailwind config
 You can either import colors or just copy colors.css and tweak it. On Next js, you can import it on a place like `layout.js`.
 
 ```
-  import "swapr-ui/colors.css";
+  import "@swapr/ui/colors.css";
 ```
 
 ## Not using tailwind css
@@ -46,7 +46,7 @@ You can either import colors or just copy colors.css and tweak it. On Next js, y
 Import all the needed styles
 
 ```
-import "swapr-ui/styles.css";
+import "@swapr/ui/styles.css";
 ```
 
 ---
