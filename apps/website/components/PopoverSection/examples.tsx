@@ -10,7 +10,7 @@ import {
   TabGroup,
   TabHeader,
   TabStyled,
-} from "swapr-ui";
+} from "@swapr/ui";
 import { Root as Separator } from "@radix-ui/react-separator";
 
 const SettingsPopoverContent = () => (

@@ -23,18 +23,18 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Installing swapr-ui on a
+## Installing @swapr/ui
 
 with npm
 
 ```bash
-npm install swapr-ui@latest
+npm install @swapr/ui@latest
 ```
 
 with bun
 
 ```bash
-bun add swapr-ui@latest 
+bun add @swapr/ui@latest 
 ```
 
 ## Using tailwind on the project
@@ -46,7 +46,7 @@ Add this path to content on tailwind config
 ```
  content: [
     <!-- other paterns -->
-    "./node_modules/swapr-ui/**/*.{js,ts,js,mjs}",
+    "./node_modules/@swapr/ui/**/*.{js,ts,js,mjs}",
   ],
 ```
 
@@ -55,7 +55,7 @@ Add this path to content on tailwind config
 You can either import colors or just copy colors.css from `swapr-ui-lib` and tweak it. On Next js, you can import it on `layout.js`.
 
 ```
-  import "swapr-ui/colors.css";
+  import "@swapr/ui/colors.css";
 ```
 
 ## Not using tailwind
@@ -63,5 +63,5 @@ You can either import colors or just copy colors.css from `swapr-ui-lib` and twe
 Import all the needed styles
 
 ```
-import "swapr-ui/styles.css";
+import "@swapr/ui/styles.css";
 ```

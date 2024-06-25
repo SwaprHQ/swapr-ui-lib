@@ -1,11 +1,13 @@
 {
-  "name": "swapr-ui",
-  "version": "0.0.59",
+  "name": "@swapr/ui",
+  "version": "0.0.1",
   "description": "Lib of UI components and web3 components",
   "keywords": [
     "ui",
     "web3",
-    "components"
+    "components",
+    "swapr",
+    "ethereum"
   ],
   "author": "Swapr",
   "license": "ISC",
