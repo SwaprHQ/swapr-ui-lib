@@ -54,12 +54,10 @@ export const chipButtonStyles = cva(
   }
 );
 
-export type ChipButtonSizeProp = "sm" | "md";
-export type ChipButtonColorSchemeProp = "primary" | "secondary";
-
-interface ChipButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  colorScheme?: ChipButtonColorSchemeProp;
-  size?: ChipButtonSizeProp;
+export interface ChipButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  colorScheme?: "primary" | "secondary";
+  size?: "sm" | "md";
   disabled?: boolean;
   active?: boolean;
 }
