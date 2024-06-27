@@ -31,9 +31,9 @@ export const IconButton = forwardRef(
     {
       name,
       className,
-      size = "md" as const,
+      size = "md",
       ...props
-    }: ButtonProps & Pick<IconProps, "name"> & { size?: keyof typeof iconSize },
+    }: ButtonProps & Pick<IconProps, "name">,
     ref: Ref<HTMLButtonElement>
   ) => (
     <Button
