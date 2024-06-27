@@ -13,3 +13,4 @@ export * from "./Tabs";
 export * from "./Tag";
 export * from "./Toast";
 export * from "./ToggleGroup";
+export * from "./Tooltip";
