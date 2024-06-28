@@ -45,7 +45,12 @@ import {
   ButtonLink,
 } from "@swapr/ui";
 
-import { PopoverSection, Section, ThemeSwitch } from "@/components";
+import {
+  PopoverSection,
+  Section,
+  TooltipSection,
+  ThemeSwitch,
+} from "@/components";
 
 const colorsKeysBanList = ["transparent", "inherit"];
 const fullConfig = resolveConfig(tailwindConfig);
@@ -504,6 +509,7 @@ export default function UI() {
           </div>
         </Section>
         <PopoverSection />
+        <TooltipSection />
         <Section>
           <h2 className="text-2xl font-semibold">Tabs</h2>
           <div className="space-y-5">
