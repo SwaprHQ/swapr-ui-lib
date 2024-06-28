@@ -4,18 +4,13 @@ import { twMerge } from "tailwind-merge";
 
 import { buttonStyles } from "./styles";
 
-type WidthProp = "normal" | "fit" | "full";
-export type ButtonColorSchemeProp = "primary" | "error" | "success";
-export type ButtonSizeProp = "xs" | "sm" | "md" | "lg";
-export type ButtonVariantProp = "solid" | "pastel" | "outline" | "ghost";
-
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
-  colorScheme?: ButtonColorSchemeProp;
+  colorScheme?: "primary" | "error" | "success";
   disabled?: boolean;
-  size?: ButtonSizeProp;
-  variant?: ButtonVariantProp;
-  width?: WidthProp;
+  size?: "xs" | "sm" | "md" | "lg";
+  variant?: "solid" | "pastel" | "outline" | "ghost";
+  width?: "normal" | "fit" | "full";
 }
 
 export const Button = forwardRef(

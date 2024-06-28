@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
 
 import { cva } from "class-variance-authority";
-import { Button, ButtonProps, ButtonSizeProp } from "../Button";
+import { Button, ButtonProps } from "../Button";
 import { Icon, IconProps } from "../Icon";
 
 export const iconButtonStyles = cva([], {
@@ -18,7 +18,8 @@ export const iconButtonStyles = cva([], {
   },
 });
 
-const iconSize: Record<ButtonSizeProp, number> = {
+type Size = NonNullable<ButtonProps["size"]>;
+const iconSize: Record<Size, number> = {
   xs: 14,
   sm: 14,
   md: 18,
