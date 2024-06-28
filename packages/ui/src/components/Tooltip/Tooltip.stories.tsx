@@ -95,7 +95,7 @@ export const Complex: Story = {
             side="right"
             align="center"
             sideOffset={8}
-            className="p-3 w-60 text-sm bg-text-white rounded-12 shadow-3 border-outline-base-em"
+            className="w-60"
           >
             <p>
               Currently, gas prices are high. It is preferable to perform the
