@@ -43,14 +43,13 @@ import {
   DialogClose,
   DialogFooter,
   ButtonLink,
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
 } from "@swapr/ui";
 
-import {
-  PopoverSection,
-  Section,
-  TooltipSection,
-  ThemeSwitch,
-} from "@/components";
+import { PopoverSection, Section, ThemeSwitch } from "@/components";
 
 const colorsKeysBanList = ["transparent", "inherit"];
 const fullConfig = resolveConfig(tailwindConfig);
@@ -208,7 +207,6 @@ const btnLinkList: {
     errorAsElemBLCombos,
   ],
 };
-
 interface IconBadgeListProps {
   colorScheme?: IconBadgeColorSchemeProp;
   variant?: IconBadgeVariantProp;
@@ -509,7 +507,48 @@ export default function UI() {
           </div>
         </Section>
         <PopoverSection />
-        <TooltipSection />
+        <Section>
+          <h2 className="text-2xl font-semibold">Tooltips</h2>
+          <div className="grid items-center space-y-2.5 lg:space-y-0 lg:grid-cols-2 lg:gap-4">
+            <div className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 text-center">
+              Basic
+            </div>
+            <div className="hidden uppercase text-xs lg:block font-semibold bg-gray-200 text-center">
+              Complex
+            </div>
+            <div className="flex items-center justify-center">
+              <TooltipProvider delayDuration={500}>
+                <Tooltip>
+                  <TooltipTrigger>Hover here</TooltipTrigger>
+                  <TooltipContent side="right">This is a sample</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+            <div className="flex items-center justify-center">
+              <TooltipProvider delayDuration={500}>
+                <Tooltip>
+                  <TooltipTrigger>Hover here</TooltipTrigger>
+                  <TooltipContent
+                    side="right"
+                    align="center"
+                    sideOffset={8}
+                    className="p-3 w-60 text-sm bg-text-white rounded-12 shadow-3 border-outline-base-em"
+                  >
+                    <p>
+                      Currently, gas prices are high. It is preferable to
+                      perform the transaction after some time.
+                    </p>
+                    <div className="flex mt-4 justify-between">
+                      <Button variant="pastel">Learn more</Button>
+                      <Button>Got it</Button>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </div>
+        </Section>
+
         <Section>
           <h2 className="text-2xl font-semibold">Tabs</h2>
           <div className="space-y-5">
