@@ -1,64 +1,100 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { cx } from "class-variance-authority";
+import { TooltipContentProps } from "@radix-ui/react-tooltip";
 
 import {
   Tooltip,
-  TooltipArrow,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "./Tooltip";
 import { Button } from "../Button";
-import { forwardRef } from "react";
 
 const meta = {
   title: "Components/Tooltip Content",
   component: TooltipContent,
   tags: ["autodocs"],
-  //   argTypes: {
-  //     align: {
-  //       control: "select",
-  //       options: ["start", "center", "end"],
-  //       defaultValue: "center",
-  //       description:
-  //         "Sets the popover content alignment relative to the popover trigger.",
-  //     },
-  //     sideOffset: {
-  //       control: "number",
-  //       defaultValue: 4,
-  //       description:
-  //         "Represents the distance in pixels between the popover content and the popover trigger",
-  //     },
-  //   },
+  argTypes: {
+    align: {
+      control: "select",
+      options: ["start", "center", "end"],
+      defaultValue: "top",
+      description:
+        "Represents the preferred alignment of the content relative to the trigger.",
+    },
+    side: {
+      control: "select",
+      options: ["top", "right", "bottom", "left"],
+      defaultValue: "top",
+      description: "Sets the content alignment relative to the trigger.",
+    },
+    sideOffset: {
+      control: "number",
+      defaultValue: 0,
+      description:
+        "Represents the distance in pixels between the content and the trigger",
+    },
+  },
 } satisfies Meta<typeof TooltipContent>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-// const Arrow = forwardRef((props, ref: any) => (
-//   <svg
-//     {...props}
-//     ref={ref}
-//     xmlns="http://www.w3.org/2000/svg"
-//     width="20"
-//     height="7"
-//     viewBox="0 0 20 7"
-//     fill="none"
-//   >
-//     <path
-//       d="M5.7021 4.56168C7.41751 5.93401 8.27522 6.62017 9.24878 6.80633C9.7451 6.90123 10.2549 6.90123 10.7512 6.80633C11.7248 6.62017 12.5825 5.93401 14.2979 4.56168L20 0H0L5.7021 4.56168Z"
-//       fill="white"
-//     />
-//   </svg>
-// ));
-
+const basicTooltipPropList: Array<TooltipContentProps> = [
+  { align: "end", side: "bottom" },
+  { align: "center", side: "bottom" },
+  { align: "start", side: "bottom" },
+  { align: "end", side: "right" },
+  { align: "center", side: "top" },
+  { align: "start", side: "left" },
+  { align: "end", side: "top" },
+  { align: "center", side: "top" },
+  { align: "start", side: "top" },
+];
 export const Basic: Story = {
   render: (args) => (
-    <div className="w-full h-[40vh] flex items-center justify-center">
+    <div
+      className={cx(
+        "w-full h-[95vh] grid grid-cols-3 grid-rows-3",
+        // Second column
+        "[&>*:nth-child(3n+2)]:justify-center",
+        // Third column
+        "[&>*:nth-child(3n)]:justify-end",
+        // First row
+        "[&>:nth-child(-n+3)]:items-start",
+        // Second row
+        "[&>:nth-child(n+4):nth-child(-n+6)]:items-center",
+        // Third row
+        "[&>:nth-child(n+7)]:items-end"
+      )}
+    >
+      {basicTooltipPropList.map((props, index) => (
+        <div key={index} className="flex">
+          <TooltipProvider delayDuration={500}>
+            <Tooltip>
+              <TooltipTrigger>Hover here</TooltipTrigger>
+              <TooltipContent {...args} {...props}>
+                This is a sample
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const SwaprExample: Story = {
+  render: (args) => (
+    <div className="w-full h-[95vh] mt-32 ml-32">
       <TooltipProvider delayDuration={500}>
         <Tooltip>
           <TooltipTrigger>Hover here</TooltipTrigger>
           <TooltipContent
             {...args}
+            side="right"
+            align="center"
+            sideOffset={8}
             className="p-3 w-60 text-sm bg-text-white rounded-12 shadow-3 border-outline-base-em"
           >
             <p>
@@ -69,7 +105,6 @@ export const Basic: Story = {
               <Button variant="pastel">Learn more</Button>
               <Button>Got it</Button>
             </div>
-            <TooltipArrow />
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
