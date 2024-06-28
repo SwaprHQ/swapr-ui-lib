@@ -84,7 +84,7 @@ export const Basic: Story = {
   ),
 };
 
-export const SwaprExample: Story = {
+export const Complex: Story = {
   render: (args) => (
     <div className="w-full h-[95vh] mt-32 ml-32">
       <TooltipProvider delayDuration={500}>
